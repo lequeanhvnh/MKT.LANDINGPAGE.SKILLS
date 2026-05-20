@@ -1,6 +1,4 @@
 # Secrets — never commit
-.env
-.env.local
 .env*.local
 **/.env.local
 **/.env*.local
@@ -51,3 +49,4 @@ __pycache__/
 *.pyd
 .pytest_cache/
 .ipynb_checkpoints/
+config.bat
