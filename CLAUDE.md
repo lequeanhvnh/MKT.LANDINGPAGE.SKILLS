@@ -14,9 +14,7 @@ The skills are user-invoked via slash commands (e.g. `/biz-offer-alex-hormozi`, 
 .claude/skills/<skill-name>/SKILL.md   — skill prompts (the actual product of this repo)
 .claude/skills/<skill-name>/templates  — boilerplate the skill writes into output/
 .claude/skills/<skill-name>/references — long-form docs the skill loads on demand
-.claude/agents/                         — subagent definitions (video pipeline packagers)
-.claude/worktrees/                      — transient git worktrees created by agents (gitignored)
-.agents/skills/remotion-best-practices  — Remotion knowledge shared by video skills
+.claude/worktrees/                      — transient git worktrees created by agents (gitignored, created on demand)
 output/<slug>/                          — generated artifacts (gitignored)
 so-do-thuat-toan-landing-page-supabase.md — VN explainer of the checkout/webhook algorithm
 .mcp.json                               — project MCP: Supabase HTTP server only
@@ -65,10 +63,6 @@ See `so-do-thuat-toan-landing-page-supabase.md` for the full checkout/webhook al
 - **Form fields are exactly three:** họ tên, SĐT, email. Don't add fields without an explicit reason.
 - **Skills propose, user picks.** Each phase ends with the user confirming a choice; skills must not silently commit to bonus/guarantee/pricing decisions.
 - **No emojis in code or commits** unless the user asked. Skills can use emojis in user-facing chat output.
-
-## Subagents (`.claude/agents/`)
-
-Three video-pipeline packagers live here (`mkt-full-video-phase3-packager`, `mkt-full-video-phase3-remotion-packager`, `mkt-script-hook-writer`). They are orchestrated by skills in *other* repos and shouldn't be invoked directly from landing-page work — they're shared via this folder because of the env (HeyGen/ElevenLabs keys live in `.env`).
 
 ## MCP and external services
 
