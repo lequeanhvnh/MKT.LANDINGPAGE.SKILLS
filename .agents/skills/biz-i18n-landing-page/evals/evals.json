@@ -1,0 +1,24 @@
+{
+  "skill_name": "biz-i18n-landing-page",
+  "notes": "Each run operates on a fresh copy of evals/fixtures/sample-landing/ (a compact Next.js 15 App Router + TS + Tailwind landing page in Vietnamese: layout.tsx metadata, page.tsx, and Hero/Pricing/FAQ/LeadForm/Footer components). The runner copies the fixture into the run's output dir before the agent starts. Languages + default are stated in each prompt so the run is deterministic (the skill's interview step already has its answers).",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tôi vừa build xong một landing page Next.js cho khoá huấn luyện sức khỏe, hiện toàn bộ trang đang là tiếng Việt. Tôi muốn thêm tiếng Anh để khách nước ngoài đọc được, và có một nút chuyển ngôn ngữ ngay trên trang. Tiếng Việt vẫn là ngôn ngữ mặc định. Landing page nằm trong thư mục dự án.",
+      "expected_output": "Landing page becomes bilingual VI/EN. New app/i18n/ folder with LanguageContext.tsx, LanguageSwitcher.tsx, dictionaries/{vi,en}.ts + index.ts. layout.tsx wraps children in LanguageProvider and renders LanguageSwitcher (fixed top-right pill). Every component (Hero/Pricing/FAQ/LeadForm/Footer) rewired to read from useT(); server components gain 'use client'; LeadForm keeps its single existing 'use client'. en.ts is a marketing-quality English localization with the same key shape as vi.ts. Brand name, VND prices, phone/email left untranslated. vi.ts content byte-identical to the original Vietnamese copy.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Landing page của tôi (Next.js, đã build xong, nằm trong thư mục dự án) đang chỉ có tiếng Việt. Khách của tôi có cả người Trung Quốc và người Hàn Quốc, nên tôi muốn trang hỗ trợ 4 thứ tiếng: Tiếng Việt, English, 中文 (Trung), và 한국어 (Hàn). Mặc định là Tiếng Việt. Thêm giúp tôi nút chuyển ngôn ngữ ở trên trang.",
+      "expected_output": "Landing page becomes multilingual with 4 locales (vi, en, zh, ko), default vi. dictionaries/ has vi.ts + en.ts + zh.ts + ko.ts, all matching vi.ts key shape; index.ts registers all 4 with correct ISO 639-1 codes and localeNames. LanguageSwitcher pill shows 4 language buttons. Each non-Vietnamese dictionary is a proper localization (English to 'you', Chinese using 您, Korean using 존댓말) — not literal machine translation. Brand name / VND prices / phone untranslated across all languages.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "web em mới có mỗi tiếng việt thôi à, giờ muốn khách tây vào cũng đọc được, làm sao thêm tiếng anh vô được ko, kèm cái nút bấm đổi qua đổi lại ấy. project next.js của em ở trong thư mục này. để tiếng việt làm mặc định nha",
+      "expected_output": "Despite casual phrasing, the skill triggers and produces the same bilingual VI/EN result as eval 1: app/i18n/ scaffold, LanguageProvider + fixed top-right LanguageSwitcher in layout.tsx, all components rewired to useT(), English dictionary is a quality localization. Default locale is vi. No locale routing, no next-intl/i18next dependency added.",
+      "files": []
+    }
+  ]
+}

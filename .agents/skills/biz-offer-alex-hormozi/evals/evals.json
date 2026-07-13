@@ -1,0 +1,26 @@
+{
+  "skill_name": "biz-offer-alex-hormozi",
+  "evals": [
+    {
+      "id": 1,
+      "name": "mode-b-paste-course-shopee",
+      "prompt": "Anh đang định launch khóa học 'Bán Hàng Trên Shopee Cho Người Mới' (8 tuần, video course tiếng Việt, 40 module). Đây là pain/gain anh đã survey từ 30 học viên potential:\n\nPain:\n- Đăng sản phẩm xong 2 tuần không có ai mua, không hiểu vì sao\n- Mất 4-6h/ngày setup shop nhưng vẫn rối, không biết bắt đầu từ đâu\n- Sợ bị ban shop vì vi phạm policy không cố ý\n- Phí Shopee + ship + voucher ăn hết lợi nhuận, bán mà như làm không công\n- Bị khách rate 1 sao bất công, không biết xử lý\n\nGain:\n- Có 50-100 đơn/ngày trong 60 ngày đầu launch shop\n- Biết chính xác sản phẩm nào ngách của mình đang HOT, không phải đoán\n- Tự setup ads Shopee có ROAS 3-5x trong tuần đầu\n- Có workflow xử lý đơn 100+/ngày không stress\n\nKhách target: phụ nữ 25-40 tuổi ở TP/HCM và HN, đang đi làm văn phòng, muốn bán part-time để có 15-30M/tháng phụ thu nhập, vốn ban đầu 5-30M.\n\nAnh muốn em đóng gói offer Hormozi với 3-tier pricing, bonus stack đẹp, guarantee mạnh. Em đề xuất bonus giúp anh nhé.",
+      "expected_output": "Skill should: (1) detect Mode B (pains/gains provided), (2) confirm anchor with user (segment, dream outcome candidate, top 3 pain ranking, top 3 gain), (3) score Value Equation 4 levers baseline, (4) propose Core Offer name with mechanism + value, (5) brainstorm 5-7 bonus candidates across 4 categories with VND value justification, (6) wait for user to pick 3-4 bonuses, (7) propose 2-3 guarantee variants, (8) propose urgency mechanism, (9) generate 3-tier pricing with charm numbers, (10) write 3 output files (offer.md, offer.json, conversion-copy.md). Vietnamese throughout, addresses user as anh/chị.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "mode-c-only-product-design-coaching",
+      "prompt": "Tôi muốn đóng gói offer cho dịch vụ coaching 1-1 của mình. Tôi là UX designer 8 năm kinh nghiệm, coach designer junior lên mid/senior. Chương trình kéo dài 3 tháng, 1 buổi/tuần (60 phút), giá tôi đang định để khoảng 30-50 triệu. Em giúp tôi package offer Hormozi nhé.",
+      "expected_output": "Skill should detect Mode C (only product, no pain/gain provided), run 5-round interview to surface: niche specificity (junior designer target — agency? freelance? in-house? bao nhiêu năm exp?), customer jobs (functional/social/emotional), 3-5 specific pains (vd 'không biết build portfolio', 'không pass technical interview FAANG', 'feedback từ senior chung chung'), 3-5 specific gains, existing solution + WTP, bonus assets available. After interview, synthesize Anchor preview asking user to confirm, then proceed to Phase 1-7. Final output: 3 files in output/cases/<slug>/. Note: skill should NOT skip interview and jump straight to designing offer.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "mode-b-saas-b2b-high-ticket",
+      "prompt": "Em đã có VPC từ pipeline VPD rồi, file ở output/cases/saas-hr-onboarding-vn/vpc.json. Sản phẩm là SaaS 'HR-Onboard' — tool tự động hóa onboarding nhân viên mới cho doanh nghiệp 50-500 người ở Việt Nam. Giá target: annual contract 200-500 triệu/năm.\n\nVPC summary:\n- Segment: HR Manager doanh nghiệp 50-500 người ở VN, ngành tech/finance/retail, doanh thu 50-500 tỷ/năm\n- Pain top 3: (1) onboarding manual mất 5-10 ngày/người mới, HR ngập trong paperwork; (2) new hire bỏ trong 90 ngày đầu rate 25-35%; (3) compliance check (CCCD, BHXH, hợp đồng) sai sót dẫn đến phạt thuế\n- Gain top 3: (1) onboarding < 1 ngày, paperwork tự động; (2) reduce turnover 90-day xuống <10%; (3) compliance auto-check, zero penalty\n- Dream outcome: 'New hire ready-to-work sau ngày đầu, HR không tốn thời gian'\n\nMình đóng gói offer SaaS này theo Hormozi với enterprise pricing tier. Đề xuất bonus + implementation package + guarantee phù hợp B2B.",
+      "expected_output": "Skill should: (1) detect Mode B with VPC reference (treat as paste mode, NOT try to read file since this is a test prompt), (2) confirm anchor based on data provided, (3) score Value Equation for B2B SaaS context, (4) design Core Offer (annual license + tier structure), (5) brainstorm bonuses appropriate for B2B (implementation service, integration setup, dedicated CSM, executive workshops — NOT consumer course bonuses), (6) propose 2-3 enterprise guarantee variants (SLA-based, success-based, dedicated CSM 6 months), (7) urgency suited for B2B (founding customer pricing, Q2 onboarding cohort), (8) pricing tiers in 100M-500M VND range with USD quoting acceptable, (9) generate 3 output files. Critical: bonus must match B2B context — no '50 email templates' which is consumer-style. Skill must understand high-ticket context shifts everything.",
+      "files": []
+    }
+  ]
+}

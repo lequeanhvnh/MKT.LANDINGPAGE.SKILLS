@@ -1,0 +1,123 @@
+{
+  "version": "1.0",
+  "schema": "biz-offer-alex-hormozi/v1",
+  "slug": "side-business-90-ngay",
+  "anchor": {
+    "segment": "Nhân viên văn phòng VN, 28-38 tuổi, lương 20-35M/tháng, muốn xây dựng side business online song song công việc full-time",
+    "dream_outcome": "Có 30 triệu/tháng đều đặn từ side business trong 90 ngày, dành 10h/tuần, không cần bỏ việc full-time",
+    "pains": {
+      "functional": "Đã thử nhiều kênh: content TikTok, dropshipping, affiliate — mỗi cái thử 1-2 tháng rồi bỏ vì không thấy result",
+      "emotional": "Mỗi tháng nhìn lương 25M, biết mình stuck ở mức này 5 năm rồi. Frustrated nhưng không biết bắt đầu từ đâu",
+      "social": "Bạn cùng đại học đã có side business 100M+/tháng, mình xấu hổ trong meeting alumni"
+    },
+    "gains": {
+      "required": "Side business sinh ra ít nhất 10M/tháng để cover chi phí gia đình tăng",
+      "expected": "30M/tháng đều đặn, có recurring revenue chứ không phải spike rồi rớt",
+      "desired": "Hệ thống automated chạy được kể cả khi mình đi du lịch 2 tuần"
+    }
+  },
+  "value_equation_score": {
+    "dream_outcome": 8,
+    "perceived_likelihood": 6,
+    "time_delay": 5,
+    "effort_sacrifice": 4,
+    "weakest_lever": "effort_sacrifice"
+  },
+  "core_offer": {
+    "name": "Funnel-First System — Bootcamp Side Business 90 Ngày",
+    "format": "hybrid (video course + group coaching)",
+    "scope": "4 module, 12 tuần, 1 buổi LIVE Q&A/tuần",
+    "mechanism": "Funnel-First System — đảo ngược thứ tự build side business: offer + funnel trước, content sau",
+    "components": [
+      {"name": "Module 1: Validate Niche", "benefit": "Confirm có 100 người sẵn sàng trả trước khi build"},
+      {"name": "Module 2: Build Offer", "benefit": "Design offer 10x value, dùng Hormozi framework"},
+      {"name": "Module 3: Set Up Funnel", "benefit": "Sales page + email sequence automated"},
+      {"name": "Module 4: Content Lead-Gen", "benefit": "3 pillar content drive traffic vào funnel"}
+    ],
+    "value_estimate_vnd": 9997000
+  },
+  "bonuses": [
+    {
+      "order": 1,
+      "name": "Bộ 50 Mẫu Email Cold Outreach Sẵn-Dùng",
+      "category": "time-saver",
+      "value_vnd": 4997000,
+      "description": "50 email templates phân theo 5 phase funnel (cold/warm/cart/win-back/upsell), test trên 10K+ leads, sẵn paste vào ConvertKit/Mailchimp",
+      "boosts_lever": "effort",
+      "addresses_pain": "Không biết viết gì trong email để khách mua"
+    },
+    {
+      "order": 2,
+      "name": "Masterclass: Niche Validation trong 7 Ngày",
+      "category": "skill-builder",
+      "value_vnd": 3997000,
+      "description": "Mini-course 5 video step-by-step validate niche qua $100 ads test + 20 voice-of-customer interview, ra answer go/no-go trong 7 ngày",
+      "boosts_lever": "time_delay",
+      "addresses_pain": "Sợ làm sai niche và mất 6 tháng"
+    },
+    {
+      "order": 3,
+      "name": "Community Telegram Private + Office Hours 2x/Tuần",
+      "category": "support",
+      "value_vnd": 7997000,
+      "description": "Group Telegram 300+ alumni đang vận hành, office hours với coach mỗi Tue/Thu, response trong 24h",
+      "boosts_lever": "perceived_likelihood",
+      "addresses_pain": "Một mình stuck không có người hỏi"
+    },
+    {
+      "order": 4,
+      "name": "1-1 Strategy Session 60 Phút với Coach (Fast Action)",
+      "category": "fast-action",
+      "value_vnd": 5997000,
+      "description": "Chỉ dành cho 10 người đăng ký đầu tiên của cohort. 60 phút 1-1 với coach để personalize funnel cho niche của anh/chị",
+      "boosts_lever": "perceived_likelihood",
+      "addresses_pain": "Sợ mua xong không apply được vì niche đặc thù"
+    }
+  ],
+  "guarantee": {
+    "type": "conditional",
+    "duration": "90 ngày",
+    "condition": "Sau khi hoàn thành 4 module và áp dụng đầy đủ workflow, vẫn không có ít nhất 1 sale từ funnel",
+    "wording": "Bảo hành kết quả 90 ngày — không đạt sale đầu tiên, hoàn 100% tiền học phí, không hỏi lý do. Anh/chị giữ lại toàn bộ template, swipe file đã download.",
+    "reason": "89% học viên cohort gần nhất đạt sale đầu trong 60 ngày"
+  },
+  "urgency": {
+    "mechanism": "cohort-based + quantity scarcity + price increase",
+    "details": {
+      "cohort_size": 30,
+      "cohort_start": "2026-07-15",
+      "spots_filled_at_doc_time": 18,
+      "deadline_close_cohort": "2026-06-30 23:59",
+      "next_cohort_gap_months": 4,
+      "current_price_vnd": 4997000,
+      "next_price_vnd": 6997000,
+      "price_deadline": "2026-06-08"
+    }
+  },
+  "pricing": {
+    "total_stack_value_vnd": 32985000,
+    "tiers": [
+      {"tier": "BASIC", "price_vnd": 1997000, "includes": "Core 4 module only, no bonus, no community"},
+      {"tier": "STANDARD", "price_vnd": 4997000, "includes": "Core + 3 bonus + community + office hours", "recommended": true},
+      {"tier": "PREMIUM", "price_vnd": 9997000, "includes": "Standard + 1-1 bi-weekly + priority Telegram"}
+    ],
+    "installment": {"available": true, "n_payments": 3, "amount_per_vnd": 1797000},
+    "stack_value_to_price_ratio": 6.6,
+    "currency": "VND"
+  },
+  "credibility": {
+    "founder_name": "Nguyễn Hoàng Anh",
+    "founder_role": "Founder Funnel Lab Vietnam",
+    "years_experience": 8,
+    "n_clients_helped": "247 học viên cohort 2023-2025",
+    "primary_track_record": "89% học viên đạt 30M+/tháng trong 90 ngày",
+    "research_source": "Báo cáo Brand Vietnam 2025: 78% solopreneur stuck ở 20-30M vì không có funnel"
+  },
+  "vietnamese_market_notes": {
+    "address_form": "anh/chị",
+    "payment_methods": ["Momo", "ZaloPay", "ATM", "VietQR", "SePay"],
+    "supports_vat_invoice": true,
+    "supports_installment": true,
+    "guarantee_duration_vs_western_default": "90 ngày (gấp 3 lần default 30 ngày)"
+  }
+}

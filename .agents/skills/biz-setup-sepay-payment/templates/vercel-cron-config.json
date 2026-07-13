@@ -1,0 +1,9 @@
+{
+  "_comment": "Append vào root vercel.json để giữ Supabase Free khỏi pause sau 7 ngày silence. Cron chạy 03:00 UTC mỗi 6 ngày (10:00 VN) — ping /api/health → query Postgres → count as activity. Free tier Vercel Cron giới hạn 2 cron/tháng cho Hobby — pattern này dùng 5 lần/tháng nên cần Pro plan HOẶC chuyển sang Vercel Cron 'on-demand' qua GitHub Actions / cron-job.org (free).",
+  "crons": [
+    {
+      "path": "/api/health",
+      "schedule": "0 3 */6 * *"
+    }
+  ]
+}

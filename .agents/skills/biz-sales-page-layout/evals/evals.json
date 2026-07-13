@@ -1,0 +1,26 @@
+{
+  "skill_name": "biz-sales-page-layout",
+  "evals": [
+    {
+      "id": 1,
+      "name": "mode-a-offer-json-input",
+      "prompt": "Anh vừa chạy xong /biz-offer-alex-hormozi cho khóa học Side Business 90 Ngày. Có file offer.json ở /Users/tonyhoang/Documents/GitHub/BIZ.MKT.OS/.claude/skills/biz-sales-page-layout/evals/sample-offer.json. Bây giờ em build layout cho sales page giúp anh. Anh muốn hook readiness, các quyết định khác em propose anh chọn nhanh.",
+      "expected_output": "3 file output trong output/sales-pages/<slug>/: layout.md (wireframe + copy filled-in Vietnamese), layout.json (structured, có schema, anchor, hero, sections, footer), hero-block.md (3 variant A/B/C). Skill phải đọc offer.json, parse đầy đủ, propose 2-3 hook variants, build hero theo Priestley 5-element, build body 9 sections sau hero theo Hormozi anatomy, xưng anh/chị, VND charm pricing.",
+      "files": ["evals/sample-offer.json"]
+    },
+    {
+      "id": 2,
+      "name": "mode-b-pain-gain-product",
+      "prompt": "Anh chưa chạy biz-offer, anh có pain/gain rồi thôi. Pain của khách: (1) làm content TikTok 6 tháng không lên 1K followers, (2) cảm thấy frustrated mỗi sáng nhìn analytics, (3) bạn bè đã có 10K+ followers, mình xấu hổ không dám share. Gain: muốn có 50K followers organic trong 6 tháng, monetize qua brand deal 5M+/post. Sản phẩm anh bán: khóa Bootcamp TikTok 12 tuần, 5.997.000đ. Tạo sales page layout giúp anh.",
+      "expected_output": "Skill nên suggest user chạy /biz-offer-alex-hormozi trước (để có offer.json richer), nhưng nếu user accept Mode B thì build layout với data có sẵn. Hero theo Priestley, body có placeholder cho offer stack (vì không có bonus details). Mark testimonial section là FLAG (chưa có testimonial). Xưng anh/chị.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "mode-c-product-only-interview",
+      "prompt": "Em muốn launch một dịch vụ coaching 1-1 cho mẹ bỉm sữa muốn giảm cân sau sinh. Em chưa biết pain/gain cụ thể của họ. Em chưa chạy biz-offer. Giá dịch vụ em đang nghĩ là 7.997.000đ/3 tháng. Tạo sales page giúp em.",
+      "expected_output": "Skill phải detect Mode C, suggest user chạy /biz-offer trước, nếu user accept Mode C thì phỏng vấn ngắn 8 câu VPD-style để surface pain/gain. Sau interview, propose anchor → user confirm → build hero → build body. Output 3 file vẫn theo schema, nhưng có nhiều placeholder cần fill (testimonial, specific stats, hero image).",
+      "files": []
+    }
+  ]
+}

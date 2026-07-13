@@ -1,0 +1,155 @@
+{
+  "slug": "ai-agent-camp-3n2d-dalat",
+  "name": "AGENT CAMP — Trại Huấn Luyện Xây Dựng AIOS",
+  "subtitle": "3 ngày mastermind thực chiến cho chủ doanh nghiệp, người kinh doanh, chuyên gia muốn tái cấu trúc mô hình kinh doanh bằng AI Agent.",
+  "date": "2026-05-15",
+
+  "brand": {
+    "company": "The AI First — Cộng đồng Freedom Builder",
+    "trainer": "Hoàng Trần",
+    "program_name": "AGENT CAMP",
+    "tagline": "Trại Huấn Luyện Xây Dựng Hệ Điều Hành AIOS Cho Doanh Nghiệp Thời Đại Mới"
+  },
+
+  "anchor": {
+    "segment": "Chủ doanh nghiệp / người kinh doanh / chuyên gia ở VN, đang dùng AI rời rạc, muốn tái cấu trúc mô hình bằng AI Agent có hệ thống.",
+    "dream_outcome": {
+      "headline": "Có bản đồ AIOS riêng + bộ Agent cho marketing/sales/channel growth của doanh nghiệp mình — triển khai được sau 30 ngày.",
+      "timeframe": "3 ngày camp + 30 ngày triển khai",
+      "metric": "Bản đồ AIOS hoàn chỉnh + 3 hệ Agent đã chạy thử"
+    },
+    "big_idea": "Thời đại mới không cần thêm người làm việc cũ — cần doanh nghiệp biết vận hành bằng AI Agent.",
+    "pains": [
+      { "rank": 1, "text": "Dùng nhiều AI tool nhưng chưa thành hệ thống — marketing/bán hàng/nội dung vẫn rời rạc, kết quả không cộng dồn.", "category": "functional", "cost": "10-20h/tuần lãng phí + revenue không scale" },
+      { "rank": 2, "text": "Biết AI tiềm năng nhưng chưa biết bộ phận nào nên AI hóa trước — không có lộ trình.", "category": "functional", "cost": "Tê liệt 6-12 tháng, đối thủ vượt mặt" },
+      { "rank": 3, "text": "Đội nhóm phụ thuộc từng cá nhân, quy trình thủ công — khó scale, mệt khi vắng 1 người.", "category": "emotional", "cost": "Burnout owner + churn nhân sự" }
+    ],
+    "gains": [
+      { "rank": 1, "text": "Bản đồ AIOS cho mô hình kinh doanh của mình theo 12 lớp — biết bắt đầu từ đâu.", "category": "required" },
+      { "rank": 2, "text": "Bộ Agent cho marketing / sales / channel growth — có thể triển khai sau camp.", "category": "expected" },
+      { "rank": 3, "text": "Kết nối cộng đồng tinh hoa cùng tư duy tiên phong (Freedom Partnership).", "category": "unexpected" }
+    ]
+  },
+
+  "audiences": [
+    { "title": "Chủ doanh nghiệp muốn tái cấu trúc công ty bằng AI Agent", "pain_signals": ["Marketing chưa đều", "Sales phụ thuộc con người", "Đội nhóm chưa có hệ thống", "Chi phí vận hành tăng"] },
+    { "title": "Người kinh doanh cá nhân muốn xây mô hình tinh gọn", "use_cases": ["Bán sản phẩm/dịch vụ/khóa học", "Tư vấn / affiliate", "Xây cộng đồng", "Xây phễu bán hàng"] },
+    { "title": "Chuyên gia, coach, nhà đào tạo muốn nhân bản chuyên môn bằng AI", "use_cases": ["Thương hiệu cá nhân", "Hệ thống nội dung", "Sản phẩm tri thức", "Khóa học"] },
+    { "title": "Người làm Affiliate, TikTok US, Amazon KDP, POD", "use_cases": ["TikTok US", "Amazon KDP", "Print On Demand", "AI Affiliate", "Faceless Channel"] },
+    { "title": "Người muốn xây hệ sinh thái đối tác và cộng đồng", "use_cases": ["Tìm kiếm đối tác", "Đào tạo cộng tác viên", "Mô hình Freedom Partnership"] },
+    { "title": "Thành viên Elite / Freedom Builders muốn đi sâu vào AIOS", "use_cases": ["Chuyển giao hệ điều hành AIOS", "Xây hệ thống marketing/sales", "Freedom Partnership"] }
+  ],
+
+  "not_for": [
+    "Chỉ muốn học vài mẹo dùng AI cho vui",
+    "Chỉ muốn sưu tầm prompt nhưng không muốn thay đổi cách làm việc",
+    "Chưa sẵn sàng đầu tư thời gian để thực hành",
+    "Kỳ vọng AI tạo kết quả lớn mà không cần tư duy, hệ thống và hành động",
+    "Chỉ muốn xem demo công nghệ nhưng không có mong muốn áp dụng vào kinh doanh thật"
+  ],
+
+  "before_after": {
+    "before": [
+      "Biết AI tiềm năng nhưng chưa biết ứng dụng vào đâu",
+      "Dùng nhiều tool nhưng chưa tạo thành hệ thống",
+      "Muốn tăng trưởng nhưng đội nhóm còn chậm",
+      "Muốn xây kênh nhưng nội dung chưa đều",
+      "Muốn marketing tốt hơn nhưng thiếu chiến lược",
+      "Muốn làm affiliate/KDP/POD nhưng còn thủ công"
+    ],
+    "after": [
+      "Hiểu AIOS là gì và vì sao quan trọng",
+      "Có bản đồ ứng dụng AI Agent cho mô hình của mình",
+      "Biết bộ phận nào nên AI hóa trước",
+      "Biết cách thiết kế workflow và Agent",
+      "Có roadmap triển khai 30 ngày sau chương trình",
+      "Kết nối với nhóm người cùng tư duy tiên phong"
+    ]
+  },
+
+  "mechanism": {
+    "name": "AIOS — AI Operating System",
+    "definition": "Cách tổ chức AI Agent, quy trình, dữ liệu, công cụ, con người và chiến lược kinh doanh thành một hệ thống vận hành thống nhất.",
+    "steps": [
+      "Phân tích mô hình theo 12 lớp (sản phẩm/khách hàng/kênh/đội nhóm/...)",
+      "Tìm điểm nghẽn lớn nhất trong marketing/sales/vận hành",
+      "Xác định bộ phận nên AI hóa đầu tiên",
+      "Thiết kế workflow cho từng Agent",
+      "Xây Agent (Marketing / Sales / Content / Channel / Strategy / Ops / Partnership)",
+      "Kết nối hệ thống — Agent nói chuyện với nhau",
+      "Đo lường, tối ưu, nhân bản"
+    ]
+  },
+
+  "value_equation": {
+    "baseline": { "dream_outcome": 6, "perceived_likelihood": 5, "time_delay": 4, "effort_sacrifice": 4 },
+    "after_stack": { "dream_outcome": 9, "perceived_likelihood": 8, "time_delay": 8, "effort_sacrifice": 8 },
+    "weakest_lever": "time_delay"
+  },
+
+  "core_offer": {
+    "name": "AGENT CAMP 3 ngày mastermind",
+    "format": "offline_retreat",
+    "scope": "3 ngày · Đà Lạt · 29-31/05/2026 · cap 60 người",
+    "value_vnd": 15000000,
+    "outcomes": [
+      { "title": "Bản đồ AIOS cho doanh nghiệp của bạn", "description": "Nhìn mô hình theo 12 lớp: sản phẩm, thị trường, khách hàng, marketing, bán hàng, kênh, nội dung, đội nhóm, vận hành, dữ liệu, đối tác, cơ hội tự động hóa." },
+      { "title": "Lộ trình ứng dụng AI Agent 8 bước", "description": "Phân tích mô hình → tìm điểm nghẽn → xác định khu vực AI hóa → thiết kế workflow → xây Agent → kết nối hệ thống → đo lường tối ưu → nhân bản." },
+      { "title": "Năng lực VibeCoding Business cho doanh chủ", "description": "Mô tả ý tưởng kinh doanh đủ rõ để AI hỗ trợ xây hệ thống nhanh hơn — không cần code." },
+      { "title": "Showcase hệ thống Agent thực tế", "description": "Marketing, sales, channel growth, branding, AI Affiliate, KDP/POD — bức tranh thật thay vì lý thuyết." }
+    ]
+  },
+
+  "bonuses": [
+    { "id": "B1", "category": "time_saver",        "name": "AIOS Business Mapping Canvas", "description": "Khung vẽ lại doanh nghiệp theo 12 lớp: sản phẩm, khách hàng, thị trường, marketing, sales, kênh tăng trưởng, vận hành, đội nhóm, dữ liệu, đối tác, điểm nghẽn, cơ hội ứng dụng Agent.", "value_vnd": 5000000, "boost_lever": "effort_sacrifice" },
+    { "id": "B2", "category": "skill_builder",     "name": "Bộ mẫu tư duy 20 Agent cho doanh nghiệp", "description": "Market Research, Customer Insight, Content Strategy, Channel Growth, Sales Script, Offer Builder, Personal Branding, KDP Niche Hunter, POD Idea, Training Assistant, Customer Care, Automation Planner, Partnership Agent…", "value_vnd": 8000000, "boost_lever": "time_delay" },
+    { "id": "B3", "category": "support_community", "name": "Agent Camp Workbook", "description": "Tài liệu thực hành ghi lại bài toán hiện tại, điểm nghẽn, kênh tăng trưởng ưu tiên, quy trình AI hóa, Agent cần xây, workflow thiết kế, kế hoạch triển khai.", "value_vnd": 3000000, "boost_lever": "perceived_likelihood" },
+    { "id": "B4", "category": "skill_builder",     "name": "Bộ prompt VibeCoding Business", "description": "Biến ý tưởng kinh doanh thành mô hình tăng trưởng, luồng khách hàng, quy trình bán hàng, workflow vận hành, MVP sản phẩm, tài liệu bán hàng.", "value_vnd": 6000000, "boost_lever": "effort_sacrifice" },
+    { "id": "B5", "category": "fast_action",       "name": "Roadmap 30 ngày sau Agent Camp", "description": "Khung định hướng tiếp tục triển khai sau chương trình — tránh học xong nhiều ý tưởng nhưng không biết bắt đầu từ đâu.", "value_vnd": 4000000, "boost_lever": "time_delay", "is_fast_action": true, "fast_action_deadline": "Chỉ cho người đăng ký Early Bird 16-20/05/2026" }
+  ],
+
+  "value_stack_total_vnd": 68000000,
+
+  "guarantee": {
+    "type": "service",
+    "duration_days": 30,
+    "wording": "Nếu sau 3 ngày Agent Camp anh/chị chưa có bản đồ AIOS rõ ràng cho mô hình của mình, team sẽ làm việc 1-1 không tính phí trong 30 ngày sau camp đến khi anh/chị có bản đồ + 1 Agent đầu tiên chạy thực tế."
+  },
+
+  "urgency": [
+    { "mechanism": "Số lượng giới hạn 60 người", "reason": "Cần tương tác, hỏi đáp và cá nhân hóa — đông quá thì chất lượng mastermind giảm." },
+    { "mechanism": "Giá tăng theo từng giai đoạn", "reason": "16-20/05: 12.868.000đ → 20-25/05: 19.868.000đ → sau 25/05: 26.868.000đ", "deadline": "25/05/2026" },
+    { "mechanism": "Người tham gia sớm có thời gian chuẩn bị bài toán cá nhân", "reason": "Agent Camp hiệu quả hơn nhiều nếu bước vào với một bài toán thật." }
+  ],
+
+  "pricing": {
+    "currency": "VND",
+    "anchor_total_vnd": 26868000,
+    "tiers": [
+      { "id": "early-bird", "label": "Early Bird", "window": "16 – 20/05/2026", "price_vnd": 12868000, "price_display": "12.868.000đ", "save_vs_anchor": 14000000, "save_display": "Tiết kiệm 14.000.000đ", "is_recommended": true, "includes": ["core","B1","B2","B3","B4","B5"], "recommended_for": "Người quyết nhanh, sẵn bài toán thật" },
+      { "id": "mid",         "label": "Giai đoạn 2", "window": "20 – 25/05/2026", "price_vnd": 19868000, "price_display": "19.868.000đ", "save_vs_anchor": 7000000, "save_display": "Tiết kiệm 7.000.000đ", "includes": ["core","B1","B2","B3","B4"], "recommended_for": "Cần thêm thời gian sắp xếp" },
+      { "id": "public",      "label": "Giá Public", "window": "Sau 25/05/2026", "price_vnd": 26868000, "price_display": "26.868.000đ", "save_vs_anchor": 0, "includes": ["core","B1","B2","B3"], "recommended_for": "Đăng ký cận ngày" },
+      { "id": "elite",       "label": "Elite ưu tiên", "window": "Dành riêng thành viên Elite", "price_vnd": 3868000, "price_display": "3.868.000đ", "visibility": "faq_only" }
+    ],
+    "value_to_price_ratio": 5.3,
+    "passes_charm_check": true
+  },
+
+  "differentiators": [
+    "Không dạy AI kiểu mẹo vặt — tập trung tư duy thiết kế AIOS là tài sản dài hạn",
+    "Không chỉ học công cụ, mà học cách thiết kế doanh nghiệp trong thời đại AI Agent",
+    "Tập trung vào marketing, bán hàng và xây kênh tăng trưởng — không dừng ở 'làm nội dung nhanh hơn'",
+    "Có demo hệ thống thực tế — bức tranh thật thay vì lý thuyết",
+    "Có tương tác, hỏi đáp và cá nhân hóa — mastermind giới hạn số lượng"
+  ],
+
+  "faq": [
+    { "q": "Tôi chưa giỏi công nghệ có tham gia được không?", "a": "Có, nếu anh/chị là người nghiêm túc và sẵn sàng học. Agent Camp không yêu cầu lập trình viên — chương trình tập trung vào tư duy ứng dụng AI Agent vào mô hình kinh doanh. Cần tinh thần thực hành và sẵn sàng thay đổi cách làm việc cũ." },
+    { "q": "Tôi chưa có doanh nghiệp lớn, chỉ đang kinh doanh cá nhân thì có phù hợp không?", "a": "Có. Rất phù hợp với người kinh doanh cá nhân, chuyên gia, coach, nhà đào tạo, affiliate hoặc người đang xây mô hình tinh gọn. Nhóm này có lợi thế vì ứng dụng nhanh, thử nghiệm nhanh và thay đổi nhanh." },
+    { "q": "Tôi đang làm affiliate, KDP, POD hoặc TikTok US thì có phù hợp không?", "a": "Rất phù hợp. Chương trình có showcase và định hướng xây hệ thống Agent cho các mô hình có khả năng nhân bản như Affiliate, Amazon KDP, POD và kênh bán hàng bằng AI." },
+    { "q": "Đây là khóa học hay mastermind?", "a": "Là sự kết hợp giữa huấn luyện, mastermind, demo hệ thống, thực hành và hỏi đáp chuyên sâu. Anh/chị không chỉ nghe bài giảng — được định hướng cách áp dụng vào bài toán thật của mình." },
+    { "q": "Sau chương trình tôi có xây được hệ thống hoàn chỉnh ngay không?", "a": "Mục tiêu 3 ngày là có bản đồ, tư duy, quy trình, framework và định hướng triển khai rõ ràng. Một số phần có thể bắt đầu xây ngay. Để xây AIOS hoàn chỉnh cần tiếp tục triển khai, đo lường và tối ưu sau đó." },
+    { "q": "Vì sao số lượng chỉ giới hạn ~60 người?", "a": "Vì chương trình cần chất lượng tương tác. Nếu quá đông, việc hỏi đáp, phân tích và cá nhân hóa cho từng nhóm sẽ bị giảm. Agent Camp không định vị là lớp học đại trà." },
+    { "q": "Thành viên Elite có quyền lợi gì?", "a": "Thành viên Elite có mức ưu tiên đặc biệt 3.868.000đ — quyền lợi riêng cho nhóm Elite đang trong lộ trình đồng hành sâu hơn với hệ sinh thái và chiến lược xây dựng AIOS." }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "skill_name": "biz-setup-sepay-payment",
+  "evals": [
+    {
+      "id": 1,
+      "name": "fresh-nextjs-no-existing-infra",
+      "prompt": "Anh có 1 Next.js App Router project ở ./shop (TypeScript, đang dùng pnpm). Anh muốn add Sepay payment cho khoá học 499K của anh — khách điền form name/phone/email → quét QR → mình tự nhận tiền + lookup khách. Anh chưa có Sepay account, chưa có Vercel KV, chưa có gì hết. Setup full pipeline cho anh nhé.",
+      "expected_output": "Skill phải đi đủ 7 phase: (0) detect Next.js App Router + TS + pnpm, (1) hướng dẫn rõ 5 bước Sepay account + bank linking + API key + webhook URL, (2) hướng dẫn tạo Vercel KV namespace + pull env + install @vercel/kv, (3-5) scaffold lib/leads-kv.ts + /api/checkout + /api/sepay-webhook (App Router với Apikey auth + dedup), (6) ask user chọn pattern A/B/C UX (recommend B), (7) test plan 4 cấp. Phải có GATE đợi user paste API key + bank info trước khi đi Phase 2."
+    },
+    {
+      "id": 2,
+      "name": "user-already-has-sepay-account",
+      "prompt": "Anh đã có Sepay account rồi, đã link Vietcombank 1023456789, có sẵn API key sk_xxxx. Anh dùng Next.js Pages Router (hơi cũ). Skip Phase 1 hộ anh, đi thẳng setup KV + scaffold code + embed VietQR. Anh muốn pattern Modal popup vì landing page bán 199K low-tier impulse buy.",
+      "expected_output": "Skill detect Pages Router → dùng templates/api-checkout-pages-router.ts thay vì App Router variant. Skip Phase 1 (user đã làm). Vẫn gate Phase 2 KV setup + Phase 6 Modal pattern A. Output code phù hợp Pages Router syntax (NextApiRequest/NextApiResponse, không Response.json)."
+    },
+    {
+      "id": 3,
+      "name": "wrong-stack-vite-not-nextjs",
+      "prompt": "Anh có landing page Vite + React (không Next.js). Có sẵn Vercel deploy. Muốn setup Sepay payment.",
+      "expected_output": "Skill phải DỪNG ở Phase 0 sớm, báo user rõ: 'Skill này hiện chỉ support Next.js. Stack anh đang dùng là Vite + React. Em có thể port logic sang Vite serverless function không?' — wait user. KHÔNG được tự ý scaffold code Next.js vào Vite project."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "skill_name": "biz-telegram-payment-notify",
+  "evals": [
+    {
+      "id": 1,
+      "name": "fresh-wire-into-existing-sepay-handler",
+      "prompt": "Em đang có Next.js App Router project tại ./shop, có sẵn `app/api/payment-success/route.ts` xử lý Sepay webhook và gửi email Resend. Anh muốn add Telegram notification gửi vào chat 1-1 của anh mỗi khi có khách thanh toán thành công. Bot token + chat_id anh đã có sẵn rồi: TELEGRAM_BOT_TOKEN=1234567890:AAExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx, TELEGRAM_CHAT_ID=987654321. Wire giùm em.",
+      "expected_output": "Skill phát hiện route hiện có, tạo lib/telegram.ts với escapeHtml + format VN, wire sendTelegramNotification vào Promise.allSettled cùng email, update .env.local + nhắc Vercel env, đưa test plan 3 cấp.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "guide-bot-creation-from-scratch",
+      "prompt": "Anh có landing page bán khoá học 499K trên Next.js đã deploy, có Sepay webhook `/api/sepay-callback` đã chạy ổn. Anh chưa có bot Telegram nào hết. Hướng dẫn anh tạo bot và setup notification gửi vào group team sale của anh nhé. Group đã có 5 người.",
+      "expected_output": "Skill phải hướng dẫn rõ 3 bước: (1) tạo bot qua @BotFather, (2) lấy chat_id của GROUP qua /getUpdates (không phải @userinfobot vì user muốn group), (3) đợi user paste credentials trước khi wire code. Phải nhắc add bot làm member group + gõ /start trong group.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "no-existing-webhook-stop-gracefully",
+      "prompt": "Anh muốn cài telegram bot báo đơn cho website của anh. Stack đang là Next.js Pages Router. Anh chưa có Sepay account, chưa có webhook gì hết — bắt đầu từ 0.",
+      "expected_output": "Skill phải dừng lại sớm và báo user rõ ràng: 'em chưa tìm thấy webhook route nhận Sepay. Anh cần setup Sepay webhook trước (link bank vào Sepay → tạo webhook URL). Em chỉ wire Telegram VÀO webhook có sẵn, không setup Sepay từ đầu.' KHÔNG được tự ý tạo Sepay account fake, KHÔNG được wire code Telegram khi chưa có webhook để hook vào.",
+      "files": []
+    }
+  ]
+}

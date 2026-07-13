@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title id="page-title">Offer Report</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --c-accent: #D97757;
+    --c-accent-soft: #F4D8C9;
+    --c-bg: #FAFAF7;
+    --c-paper: #FFFFFF;
+    --c-ink: #1F1F1F;
+    --c-mute: #6B6B66;
+    --c-line: #E8E5DD;
+    --c-go: #5B8C5A;
+    --c-pain: #B0463C;
+    --c-gain: #5B8C5A;
+    --c-gold: #B89A2E;
+  }
+  html, body { background: var(--c-bg); color: var(--c-ink); }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  .font-serif-display { font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif; font-feature-settings: 'kern','liga'; }
+  .ink { color: var(--c-ink); }
+  .mute { color: var(--c-mute); }
+  .accent { color: var(--c-accent); }
+  .bg-accent { background-color: var(--c-accent); }
+  .bg-accent-soft { background-color: var(--c-accent-soft); }
+  .border-line { border-color: var(--c-line); }
+  .bg-paper { background-color: var(--c-paper); }
+  .card {
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(31,31,31,0.04), 0 4px 16px rgba(31,31,31,0.03);
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px;
+    font-weight: 600; font-size: 13px; letter-spacing: 0.02em;
+  }
+  .pill-accent { background: var(--c-accent-soft); color: var(--c-accent); border: 1px solid #EBB394; }
+  .pill-pain   { background: #F3D6D2; color: var(--c-pain); border: 1px solid #E5B3AD; }
+  .pill-gain   { background: #E7F0E5; color: var(--c-gain); border: 1px solid #C8DCC4; }
+  .pill-gold   { background: #F6EFD1; color: var(--c-gold); border: 1px solid #E5D89A; }
+  .section-rule {
+    height: 1px; background: linear-gradient(90deg, var(--c-line), transparent);
+    margin: 0;
+  }
+  .small-caps {
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 11px; font-weight: 600; color: var(--c-mute);
+  }
+  .pain-card {
+    background: linear-gradient(180deg, #FFF8F6 0%, #FFFFFF 100%);
+    border: 1px solid #F1D3CC;
+    border-left: 4px solid var(--c-pain);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .gain-card {
+    background: linear-gradient(180deg, #F6FBF5 0%, #FFFFFF 100%);
+    border: 1px solid #C8DCC4;
+    border-left: 4px solid var(--c-gain);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .audience-card {
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    border-radius: 14px;
+    padding: 20px;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .audience-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(31,31,31,0.06); }
+  .audience-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--c-accent-soft); color: var(--c-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700;
+    font-family: 'Crimson Pro', serif;
+    margin-bottom: 12px;
+  }
+  .bonus-card {
+    border: 1px solid var(--c-line);
+    border-radius: 14px;
+    padding: 18px;
+    background: var(--c-paper);
+    position: relative;
+  }
+  .bonus-card.fast-action { border-color: var(--c-accent); background: linear-gradient(180deg, #FFF4ED, #FFFFFF); }
+  .value-bar {
+    height: 6px; background: #F0EDE5; border-radius: 999px; overflow: hidden; margin-top: 8px;
+  }
+  .value-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--c-accent) 0%, #EBB394 100%);
+    border-radius: 999px;
+  }
+  .step-circle {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--c-accent); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-family: 'Crimson Pro', serif;
+    flex-shrink: 0;
+  }
+  .tier-card {
+    border: 1px solid var(--c-line);
+    border-radius: 16px;
+    padding: 24px;
+    background: var(--c-paper);
+    position: relative;
+    transition: transform 200ms ease;
+  }
+  .tier-card:hover { transform: translateY(-2px); }
+  .tier-card.recommended {
+    border: 2px solid var(--c-accent);
+    background: linear-gradient(180deg, #FFF4ED 0%, #FFFFFF 60%);
+    box-shadow: 0 8px 32px rgba(217,119,87,0.12);
+  }
+  .tier-badge {
+    position: absolute; top: -12px; left: 24px;
+    background: var(--c-accent); color: white;
+    padding: 4px 12px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--c-line);
+  }
+  .faq-item:last-child { border-bottom: 0; }
+  .faq-q {
+    padding: 16px 0;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .faq-a {
+    padding: 0 0 16px 0;
+    color: var(--c-mute);
+    font-size: 14px; line-height: 1.65;
+  }
+  .ba-col {
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    border-radius: 14px;
+    padding: 22px;
+  }
+  .ba-before { border-left: 4px solid var(--c-pain); }
+  .ba-after  { border-left: 4px solid var(--c-gain); }
+  .check { color: var(--c-gain); font-weight: 700; margin-right: 8px; }
+  .cross { color: var(--c-pain); font-weight: 700; margin-right: 8px; }
+
+  @media print {
+    body { background: #fff; }
+    .no-print { display: none !important; }
+    .card, .audience-card, .bonus-card, .tier-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    section { page-break-inside: avoid; }
+    a { color: #1F1F1F; text-decoration: none; }
+    canvas { max-width: 600px; }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<main class="max-w-[1100px] mx-auto px-5 md:px-8 py-8 md:py-14">
+
+  <!-- ========== LOADER BANNER (file:// fallback) ========== -->
+  <div id="loaderBanner" class="hidden mb-8 card p-5 md:p-6" style="border-color: var(--c-accent); background: #FFF4ED;">
+    <div class="flex items-start gap-4 flex-wrap">
+      <div class="flex-1 min-w-[260px]">
+        <div class="small-caps accent mb-1">Cần tải dữ liệu</div>
+        <h3 class="font-serif-display text-xl md:text-2xl mb-2">Không tự đọc được file JSON từ <code class="text-sm">file://</code></h3>
+        <p class="mute text-sm leading-relaxed">
+          Mở qua local server để auto-load: <code class="text-xs px-2 py-1 rounded bg-accent-soft accent">npx serve .</code> hoặc VSCode Live Server.<br/>
+          Hoặc kéo-thả / chọn file <code class="text-xs">.json</code> bên cạnh đây.
+        </p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="pill pill-accent cursor-pointer">
+          <input type="file" id="fileInput" accept="application/json,.json" class="hidden" />
+          📂 Chọn file JSON
+        </label>
+        <span id="loaderError" class="text-xs text-red-700 hidden"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <section class="mb-10">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <div class="small-caps">Grand Slam Offer · Alex Hormozi $100M Offers</div>
+      <div class="small-caps" id="header-date">—</div>
+    </div>
+
+    <div id="brand-line" class="small-caps mb-3 accent hidden">—</div>
+    <h1 id="offer-name" class="font-serif-display text-4xl md:text-6xl leading-[1.05] tracking-tight mb-4">—</h1>
+    <p id="offer-subtitle" class="mute text-base md:text-lg max-w-3xl">—</p>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="card p-5">
+        <div class="small-caps mb-1">Tổng stack value</div>
+        <div class="font-serif-display text-3xl md:text-4xl font-semibold accent" id="hdr-stack-value">—</div>
+      </div>
+      <div class="card p-5">
+        <div class="small-caps mb-1">Giá đề xuất (Standard)</div>
+        <div class="font-serif-display text-3xl md:text-4xl font-semibold" id="hdr-price">—</div>
+        <div class="mute text-xs mt-1" id="hdr-price-window">—</div>
+      </div>
+      <div class="card p-5">
+        <div class="small-caps mb-1">Value-to-Price Ratio</div>
+        <div class="font-serif-display text-3xl md:text-4xl font-semibold"><span id="hdr-ratio">—</span><span class="mute text-lg">×</span></div>
+        <div class="mute text-xs mt-1">Hormozi rule: ≥ 10× steal deal</div>
+      </div>
+    </div>
+
+    <div class="section-rule mt-10"></div>
+  </section>
+
+  <!-- ========== ANCHOR (hồ sơ khách hàng - segment + dream outcome + big idea) ========== -->
+  <section class="mb-12">
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      <div>
+        <div class="small-caps mb-2 accent">Phần 1 · Hồ sơ khách hàng</div>
+        <h2 class="font-serif-display text-2xl md:text-3xl mb-2">Anchor: ai &amp; mong muốn gì</h2>
+        <p class="mute text-sm">Specific segment + specific dream outcome. Theo Hormozi: <em>"specificity wins"</em>.</p>
+      </div>
+      <div class="md:col-span-2 space-y-4">
+        <div class="card p-5 md:p-6">
+          <div class="small-caps mb-2">Niche / Segment</div>
+          <p id="anchor-segment" class="text-[15px] leading-relaxed">—</p>
+        </div>
+        <div class="card p-5 md:p-6" style="background: linear-gradient(180deg, #FFF4ED 0%, #FFFFFF 100%);">
+          <div class="small-caps mb-2 accent">Dream Outcome</div>
+          <p id="anchor-dream" class="font-serif-display text-xl md:text-2xl leading-snug">—</p>
+        </div>
+        <div id="anchor-bigidea" class="hidden card p-5 md:p-6" style="border-left: 4px solid var(--c-gold);">
+          <div class="small-caps mb-2">Big Idea</div>
+          <p id="anchor-bigidea-text" class="text-[15px] leading-relaxed italic">—</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AUDIENCES ========== -->
+  <section id="sec-audiences" class="mb-12 hidden">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-2">Đối tượng phù hợp</h2>
+    <p class="mute text-sm mb-5">Mỗi persona đang đối mặt câu hỏi gì khi mua offer này.</p>
+    <div id="audiencesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <!-- ========== PAINS ========== -->
+  <section id="sec-pains" class="mb-12 hidden">
+    <div class="flex items-baseline justify-between mb-5 flex-wrap gap-3">
+      <h2 class="font-serif-display text-2xl md:text-3xl">Top Pains — nỗi đau cụ thể</h2>
+      <span class="small-caps">Ranked theo severity · functional / emotional / social</span>
+    </div>
+    <div id="painsList" class="space-y-3"></div>
+  </section>
+
+  <!-- ========== GAINS ========== -->
+  <section id="sec-gains" class="mb-12 hidden">
+    <div class="flex items-baseline justify-between mb-5 flex-wrap gap-3">
+      <h2 class="font-serif-display text-2xl md:text-3xl">Top Gains — khao khát cụ thể</h2>
+      <span class="small-caps">Required · Expected · Desired · Unexpected</span>
+    </div>
+    <div id="gainsList" class="space-y-3"></div>
+  </section>
+
+  <!-- ========== NOT FOR ========== -->
+  <section id="sec-notfor" class="mb-12 hidden">
+    <div class="card p-6" style="background: #FAF7F2;">
+      <div class="small-caps mb-3" style="color: var(--c-pain);">Offer này KHÔNG dành cho</div>
+      <ul id="notForList" class="space-y-2 text-[15px]"></ul>
+    </div>
+  </section>
+
+  <!-- ========== BEFORE / AFTER ========== -->
+  <section id="sec-ba" class="mb-12 hidden">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Trước &amp; Sau — Trạng thái thay đổi</h2>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="ba-col ba-before">
+        <div class="small-caps mb-3" style="color: var(--c-pain);">Trước offer</div>
+        <ul id="beforeList" class="space-y-2 text-[15px]"></ul>
+      </div>
+      <div class="ba-col ba-after">
+        <div class="small-caps mb-3" style="color: var(--c-gain);">Sau offer</div>
+        <ul id="afterList" class="space-y-2 text-[15px]"></ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-rule my-12"></div>
+
+  <!-- ========== MECHANISM (Magic Bean) ========== -->
+  <section id="sec-mechanism" class="mb-12 hidden">
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      <div>
+        <div class="small-caps mb-2 accent">Phần 2 · Giải pháp giá trị</div>
+        <h2 class="font-serif-display text-2xl md:text-3xl mb-2">Unique Mechanism</h2>
+        <p class="mute text-sm">Magic Bean Story — phương pháp khác competitor mà offer này dùng.</p>
+      </div>
+      <div class="md:col-span-2 card p-6 md:p-7">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="pill pill-accent" id="mech-name">—</div>
+        </div>
+        <p id="mech-def" class="text-[15px] leading-relaxed mute mb-5">—</p>
+        <div id="mech-steps" class="space-y-3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VALUE EQUATION CHART ========== -->
+  <section id="sec-ve" class="mb-12 hidden">
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      <div>
+        <h2 class="font-serif-display text-2xl md:text-3xl mb-2">Value Equation</h2>
+        <p class="mute text-sm">
+          Hormozi:
+          <code class="text-xs px-1 py-0.5 rounded bg-accent-soft accent">Value = (Outcome × Likelihood) ÷ (Time × Effort)</code>
+          — đo điểm baseline (chỉ core) vs. after-stack (kèm bonus). 4 thanh càng cao càng tốt.
+        </p>
+      </div>
+      <div class="md:col-span-2 card p-5">
+        <div style="position:relative; height: 340px;">
+          <canvas id="veChart"></canvas>
+        </div>
+        <div class="mt-4 text-sm">
+          <span class="small-caps">Lever yếu nhất → </span>
+          <span class="font-semibold" id="ve-weakest">—</span>
+          <span class="mute"> · ưu tiên stack bonus đánh vào đây</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CORE OFFER ========== -->
+  <section id="sec-core" class="mb-12 hidden">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Core Offer</h2>
+    <div class="card p-6 md:p-7">
+      <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+        <div>
+          <div class="small-caps mb-1">Tên sản phẩm</div>
+          <div class="font-serif-display text-2xl md:text-3xl font-semibold" id="core-name">—</div>
+          <div class="mute text-sm mt-1"><span id="core-format">—</span> · <span id="core-scope">—</span></div>
+        </div>
+        <div class="text-right">
+          <div class="small-caps mb-1">Giá trị ước tính</div>
+          <div class="font-serif-display text-3xl font-semibold accent" id="core-value">—</div>
+        </div>
+      </div>
+      <div id="core-outcomes" class="mt-5 grid md:grid-cols-2 gap-4"></div>
+    </div>
+  </section>
+
+  <!-- ========== BONUS STACK ========== -->
+  <section id="sec-bonus" class="mb-12 hidden">
+    <div class="flex items-baseline justify-between mb-5 flex-wrap gap-3">
+      <h2 class="font-serif-display text-2xl md:text-3xl">Bonus Stack — 4 category</h2>
+      <span class="small-caps">Time Saver · Skill Builder · Support · Fast-Action</span>
+    </div>
+    <div id="bonusGrid" class="grid md:grid-cols-2 gap-4"></div>
+
+    <div class="card p-6 mt-6" style="background: linear-gradient(180deg, #FFF4ED, #FFFFFF);">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <div>
+          <div class="small-caps">Tổng giá trị stack</div>
+          <div class="mute text-sm">Core + tất cả bonus cộng dồn (chưa áp dụng tier filter).</div>
+        </div>
+        <div class="font-serif-display text-4xl md:text-5xl font-semibold accent" id="stack-total">—</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING (3-TIER DECOY) ========== -->
+  <section id="sec-pricing" class="mb-12 hidden">
+    <div class="flex items-baseline justify-between mb-5 flex-wrap gap-3">
+      <h2 class="font-serif-display text-2xl md:text-3xl">Pricing — 3-tier decoy</h2>
+      <span class="small-caps">VND charm pricing · Hormozi recommend 3 tiers</span>
+    </div>
+    <div id="tierGrid" class="grid md:grid-cols-3 gap-5"></div>
+  </section>
+
+  <!-- ========== GUARANTEE ========== -->
+  <section id="sec-guarantee" class="mb-12 hidden">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Guarantee — Risk reversal</h2>
+    <div class="card p-6 md:p-7" style="background: linear-gradient(180deg, #F6FBF5 0%, #FFFFFF 100%); border-left: 4px solid var(--c-gain);">
+      <div class="flex items-center gap-3 mb-3 flex-wrap">
+        <span class="pill pill-gain" id="g-type">—</span>
+        <span class="pill pill-gold" id="g-duration">—</span>
+      </div>
+      <blockquote id="g-wording" class="font-serif-display text-lg md:text-xl leading-relaxed italic mute border-l-4 pl-4" style="border-color: var(--c-gain);">—</blockquote>
+    </div>
+  </section>
+
+  <!-- ========== URGENCY ========== -->
+  <section id="sec-urgency" class="mb-12 hidden">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Urgency / Scarcity — chỉ dùng giới hạn thật</h2>
+    <div id="urgencyList" class="space-y-3"></div>
+  </section>
+
+  <!-- ========== DIFFERENTIATORS ========== -->
+  <section id="sec-diff" class="mb-12 hidden">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Vì sao offer này khác</h2>
+    <div id="diffList" class="grid md:grid-cols-2 gap-3"></div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section id="sec-faq" class="mb-12 hidden">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">FAQ — Câu hỏi thường gặp</h2>
+    <div class="card p-2">
+      <div id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="mt-16 pt-8 border-t border-line">
+    <div class="flex flex-wrap items-center justify-between gap-3 text-sm mute">
+      <div>
+        Generated by <code class="text-xs px-1.5 py-0.5 rounded bg-accent-soft accent">/biz-offer-alex-hormozi</code> skill · BIZ.MKT.OS
+      </div>
+      <div>
+        Framework: Alex Hormozi $100M Offers + VPD (Osterwalder) · <span id="footer-date">—</span>
+      </div>
+    </div>
+    <p class="mute text-xs mt-3 max-w-3xl">
+      Hormozi nguyên tắc: Value &gt; Price ≥ 10× · Stack bonus thay vì giảm giá · Risk reversal mạnh hơn thêm feature · Scarcity through truth.
+    </p>
+  </footer>
+
+</main>
+
+<script>
+/* =========================================================
+   OFFER REPORT — JSON-driven renderer
+   Loads `./<slug>.json`, then renders every section.
+   Schema hỗ trợ cả Hormozi abstract (anchor.pains/gains)
+   lẫn rich event/program (audiences/curriculum/before_after).
+   ========================================================= */
+const CANDIDATE_URLS = [
+  '02-offer.json',
+  'offer.json',
+  'offer-report.sample.json'
+];
+
+/* ============= HELPERS ============= */
+const VND = n => Number(n).toLocaleString('vi-VN') + 'đ';
+const VND_M = n => {
+  const x = Number(n);
+  if (x >= 1_000_000_000) return (x/1_000_000_000).toFixed(1).replace(/\.0$/,'') + ' tỷ';
+  if (x >= 1_000_000)     return Math.round(x/1_000_000) + 'M';
+  return VND(x);
+};
+const mdBold = s => String(s ?? '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+const show = id => document.getElementById(id).classList.remove('hidden');
+const escapeHtml = s => String(s ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+/* ============= DATA LOADING ============= */
+async function fetchOne(url) {
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
+}
+async function tryCandidates() {
+  const params = new URLSearchParams(location.search);
+  const override = params.get('data');
+  const urls = override ? [override, ...CANDIDATE_URLS] : CANDIDATE_URLS;
+  for (const u of urls) {
+    try { return await fetchOne(u); } catch (e) { /* try next */ }
+  }
+  throw new Error('No JSON data file found');
+}
+function showLoaderBanner(msg) {
+  const b = document.getElementById('loaderBanner');
+  b.classList.remove('hidden');
+  if (msg) {
+    const err = document.getElementById('loaderError');
+    err.textContent = msg;
+    err.classList.remove('hidden');
+  }
+}
+function hideLoaderBanner() {
+  document.getElementById('loaderBanner').classList.add('hidden');
+}
+function wireFilePicker() {
+  document.getElementById('fileInput').addEventListener('change', async (ev) => {
+    const f = ev.target.files?.[0];
+    if (!f) return;
+    try {
+      const text = await f.text();
+      const data = JSON.parse(text);
+      hideLoaderBanner();
+      renderAll(data);
+    } catch (e) {
+      const err = document.getElementById('loaderError');
+      err.textContent = 'File không hợp lệ: ' + e.message;
+      err.classList.remove('hidden');
+    }
+  });
+}
+
+/* ============= RENDERERS ============= */
+function renderHeader(d) {
+  const name = d.name || d.brand?.program_name || d.core_offer?.name || 'Offer';
+  document.getElementById('page-title').textContent = `Offer — ${name}`;
+  document.getElementById('offer-name').textContent = name;
+  document.getElementById('offer-subtitle').textContent = d.subtitle || d.brand?.tagline || d.hero?.subhead || '';
+  document.getElementById('header-date').textContent = d.date || '';
+  document.getElementById('footer-date').textContent = d.date || '';
+
+  if (d.brand?.company || d.brand?.trainer) {
+    const b = document.getElementById('brand-line');
+    b.textContent = [d.brand?.company, d.brand?.trainer].filter(Boolean).join(' · ');
+    b.classList.remove('hidden');
+  }
+
+  const stackTotal = d.value_stack_total_vnd
+                  ?? d.value_stack?.total_value_vnd
+                  ?? d.pricing?.stack_total_value_vnd
+                  ?? null;
+  document.getElementById('hdr-stack-value').textContent = stackTotal ? VND_M(stackTotal) + ' VND' : '—';
+
+  const recTier = (d.pricing?.tiers || []).find(t => t.is_recommended) || (d.pricing?.tiers || [])[1];
+  if (recTier) {
+    document.getElementById('hdr-price').textContent = recTier.price_display || VND(recTier.price_vnd);
+    document.getElementById('hdr-price-window').textContent = recTier.label + (recTier.window ? ' · ' + recTier.window : '');
+  }
+
+  const ratio = d.pricing?.value_to_price_ratio
+             ?? (stackTotal && recTier?.price_vnd ? +(stackTotal / recTier.price_vnd).toFixed(1) : null);
+  document.getElementById('hdr-ratio').textContent = ratio || '—';
+}
+
+function renderAnchor(d) {
+  const a = d.anchor || {};
+  const segment = a.segment || d.hero?.supporting || '';
+  const dream   = a.dream_outcome?.headline || a.dream_outcome || d.hero?.h1 || '';
+  const bigIdea = a.big_idea || d.big_idea?.headline || d.big_idea?.question || '';
+
+  document.getElementById('anchor-segment').textContent = segment || '—';
+  document.getElementById('anchor-dream').textContent = dream || '—';
+  if (bigIdea) {
+    document.getElementById('anchor-bigidea').classList.remove('hidden');
+    document.getElementById('anchor-bigidea-text').textContent = bigIdea;
+  }
+}
+
+function renderAudiences(d) {
+  const arr = d.audiences || d.target_audience || [];
+  if (!arr.length) return;
+  show('sec-audiences');
+  document.getElementById('audiencesGrid').innerHTML = arr.map((a, i) => {
+    const tags = (a.pain_signals || a.use_cases || []).slice(0, 5);
+    return `<div class="audience-card">
+      <div class="audience-icon">${i + 1}</div>
+      <div class="font-semibold text-[15px] leading-snug mb-2">${escapeHtml(a.title || a.name || '')}</div>
+      ${tags.length ? `<div class="flex flex-wrap gap-1 mt-2">${tags.map(t => `<span class="text-xs px-2 py-0.5 rounded-full" style="background:#F4EEE5;color:#6B6B66;">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function renderPains(d) {
+  let pains = d.anchor?.pains || d.pains || [];
+  if (!pains.length && d.problem?.pain_points) {
+    pains = d.problem.pain_points.map((t, i) => ({ rank: i + 1, text: t }));
+  }
+  if (!pains.length) return;
+  show('sec-pains');
+  document.getElementById('painsList').innerHTML = pains.map(p => {
+    const cat = p.category ? `<span class="pill pill-pain text-xs">${escapeHtml(p.category)}</span>` : '';
+    const cost = p.cost ? `<div class="mute text-xs mt-1">Cost: ${escapeHtml(p.cost)}</div>` : '';
+    return `<div class="pain-card flex items-start gap-3">
+      <div class="step-circle" style="background:var(--c-pain);">${p.rank || '!'}</div>
+      <div class="flex-1">
+        <div class="flex items-start gap-2 flex-wrap"><div class="text-[15px] font-medium flex-1">${escapeHtml(p.text)}</div>${cat}</div>
+        ${cost}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderGains(d) {
+  const gains = d.anchor?.gains || d.gains || [];
+  if (!gains.length) return;
+  show('sec-gains');
+  document.getElementById('gainsList').innerHTML = gains.map(g => {
+    const cat = g.category ? `<span class="pill pill-gain text-xs">${escapeHtml(g.category)}</span>` : '';
+    return `<div class="gain-card flex items-start gap-3">
+      <div class="step-circle" style="background:var(--c-gain);">${g.rank || '✓'}</div>
+      <div class="flex-1">
+        <div class="flex items-start gap-2 flex-wrap"><div class="text-[15px] font-medium flex-1">${escapeHtml(g.text)}</div>${cat}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderNotFor(d) {
+  const arr = d.not_for || [];
+  if (!arr.length) return;
+  show('sec-notfor');
+  document.getElementById('notForList').innerHTML = arr.map(t =>
+    `<li><span class="cross">✗</span>${escapeHtml(t)}</li>`
+  ).join('');
+}
+
+function renderBeforeAfter(d) {
+  const ba = d.before_after;
+  if (!ba || !(ba.before?.length || ba.after?.length)) return;
+  show('sec-ba');
+  document.getElementById('beforeList').innerHTML = (ba.before || []).map(t =>
+    `<li><span class="cross">✗</span>${escapeHtml(t)}</li>`
+  ).join('');
+  document.getElementById('afterList').innerHTML = (ba.after || []).map(t =>
+    `<li><span class="check">✓</span>${escapeHtml(t)}</li>`
+  ).join('');
+}
+
+function renderMechanism(d) {
+  const m = d.mechanism || d.core_offer?.unique_mechanism;
+  if (!m || (!m.name && !m.definition && !m.steps?.length && !m.agent_categories?.length)) return;
+  show('sec-mechanism');
+  document.getElementById('mech-name').textContent = m.name || 'Phương pháp';
+  document.getElementById('mech-def').textContent = m.definition || '';
+
+  let stepsHtml = '';
+  if (m.steps?.length) {
+    stepsHtml = m.steps.map((s, i) => `
+      <div class="flex items-start gap-3">
+        <div class="step-circle">${i + 1}</div>
+        <div class="flex-1 text-[15px] pt-1">${escapeHtml(s)}</div>
+      </div>`).join('');
+  } else if (m.agent_categories?.length) {
+    stepsHtml = `<div class="grid md:grid-cols-2 gap-3">` + m.agent_categories.map(c => `
+      <div class="p-3 rounded-lg" style="background:#FBF8F2;border:1px solid var(--c-line);">
+        <div class="font-semibold text-sm">${escapeHtml(c.name)}</div>
+        <div class="mute text-xs mt-1">${escapeHtml(c.role || c.description || '')}</div>
+      </div>`).join('') + `</div>`;
+  }
+  document.getElementById('mech-steps').innerHTML = stepsHtml;
+}
+
+function renderValueEquation(d) {
+  const ve = d.value_equation;
+  if (!ve || (!ve.baseline && !ve.after_stack)) return;
+  show('sec-ve');
+  document.getElementById('ve-weakest').textContent = (ve.weakest_lever || '—').replace(/_/g, ' ');
+
+  const labels = ['Dream Outcome', 'Perceived Likelihood', 'Time Delay (↑= ngắn hơn)', 'Effort (↑= nhẹ hơn)'];
+  const keys   = ['dream_outcome', 'perceived_likelihood', 'time_delay', 'effort_sacrifice'];
+  const baseline   = keys.map(k => ve.baseline?.[k] ?? ve.baseline?.[k.replace('_sacrifice','')] ?? 0);
+  const afterStack = keys.map(k => ve.after_stack?.[k] ?? ve.after_stack?.[k.replace('_sacrifice','')] ?? 0);
+
+  new Chart(document.getElementById('veChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Baseline (core only)', data: baseline, backgroundColor: '#E8AB8C', borderRadius: 6, barThickness: 22 },
+        { label: 'After bonus stack',    data: afterStack, backgroundColor: '#D97757', borderRadius: 6, barThickness: 22 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'Inter', size: 12 }, color: '#1F1F1F' } }
+      },
+      scales: {
+        y: { beginAtZero: true, max: 10, ticks: { color: '#6B6B66' }, grid: { color: '#F0EDE5' } },
+        x: { ticks: { color: '#1F1F1F', font: { family: 'Inter', size: 11 } }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+function renderCoreOffer(d) {
+  const c = d.core_offer;
+  const outcomes = d.core_outcomes || c?.outcomes;
+  if (!c && !outcomes) return;
+  show('sec-core');
+  if (c) {
+    document.getElementById('core-name').textContent = c.name || '—';
+    document.getElementById('core-format').textContent = (c.format || '').replace(/_/g, ' ');
+    document.getElementById('core-scope').textContent = c.scope || '';
+    document.getElementById('core-value').textContent = c.value_vnd ? VND_M(c.value_vnd) + ' VND' : '—';
+  }
+  if (outcomes?.length) {
+    document.getElementById('core-outcomes').innerHTML = outcomes.map(o => `
+      <div class="p-4 rounded-lg" style="background:#FBF8F2;border:1px solid var(--c-line);">
+        <div class="font-semibold text-[15px] mb-1">${escapeHtml(o.title || o.name || '')}</div>
+        <div class="mute text-sm">${escapeHtml(o.description || o.desc || '')}</div>
+      </div>`).join('');
+  }
+}
+
+function renderBonusStack(d) {
+  const bonuses = d.bonuses || [];
+  if (!bonuses.length) return;
+  show('sec-bonus');
+
+  // compute max value for relative bar
+  const values = bonuses.map(b => Number(b.value_vnd || 0));
+  const maxVal = Math.max(...values, 1);
+
+  const catLabel = {
+    time_saver: 'Time Saver',
+    skill_builder: 'Skill Builder',
+    support_community: 'Support & Community',
+    fast_action: 'Fast Action'
+  };
+
+  document.getElementById('bonusGrid').innerHTML = bonuses.map((b, i) => {
+    const pct = b.value_vnd ? Math.max(8, (b.value_vnd / maxVal) * 100) : 0;
+    const fa = b.is_fast_action ? 'fast-action' : '';
+    const valStr = b.value_vnd ? VND_M(b.value_vnd) + ' VND' : (b.note || '—');
+    const catText = catLabel[b.category] || b.category || '';
+    return `<div class="bonus-card ${fa}">
+      <div class="flex items-start justify-between gap-3 mb-2 flex-wrap">
+        <div>
+          <div class="small-caps mb-1 accent">${escapeHtml('BONUS ' + (b.id || (i+1)))} ${catText ? '· ' + escapeHtml(catText) : ''}</div>
+          <div class="font-semibold text-[15px] leading-snug">${escapeHtml(b.name)}</div>
+        </div>
+        <div class="text-right">
+          <div class="font-serif-display text-xl font-semibold accent">${valStr}</div>
+        </div>
+      </div>
+      <p class="mute text-sm">${escapeHtml(b.description || b.whats_included || '')}</p>
+      ${b.value_vnd ? `<div class="value-bar"><div class="value-bar-fill" style="width:${pct}%"></div></div>` : ''}
+      ${b.is_fast_action ? `<div class="small-caps mt-2" style="color:var(--c-accent);">⚡ Fast-Action · ${escapeHtml(b.fast_action_deadline || 'có deadline')}</div>` : ''}
+    </div>`;
+  }).join('');
+
+  const total = d.value_stack_total_vnd ?? d.value_stack?.total_value_vnd ?? null;
+  document.getElementById('stack-total').textContent = total ? VND_M(total) + ' VND' : '—';
+}
+
+function renderPricing(d) {
+  const tiers = d.pricing?.tiers || [];
+  if (!tiers.length) return;
+  show('sec-pricing');
+
+  // public visibility tiers only
+  const visible = tiers.filter(t => t.visibility !== 'faq_only');
+
+  document.getElementById('tierGrid').innerHTML = visible.map(t => {
+    const recommended = t.is_recommended ? 'recommended' : '';
+    const priceStr = t.price_display || VND(t.price_vnd);
+    const save = t.save_display || (t.save_vs_anchor ? `Tiết kiệm ${VND_M(t.save_vs_anchor)} VND` : '');
+    const includes = (t.includes || []).slice(0, 6);
+    return `<div class="tier-card ${recommended}">
+      ${t.is_recommended ? `<div class="tier-badge">⭐ Khuyên dùng</div>` : ''}
+      <div class="small-caps mb-1">${escapeHtml(t.label || '')}</div>
+      ${t.window ? `<div class="mute text-xs mb-3">${escapeHtml(t.window)}</div>` : ''}
+      <div class="font-serif-display text-3xl md:text-4xl font-semibold mb-1">${priceStr}</div>
+      ${save ? `<div class="small-caps mb-4" style="color:var(--c-gold);">${escapeHtml(save)}</div>` : `<div class="mb-4"></div>`}
+      ${includes.length ? `<ul class="space-y-1 text-sm">${includes.map(i => `<li><span class="check">✓</span>${escapeHtml(i.replace(/_/g, ' '))}</li>`).join('')}</ul>` : ''}
+      ${t.recommended_for ? `<div class="mute text-xs mt-4 italic">${escapeHtml(t.recommended_for)}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function renderGuarantee(d) {
+  const g = d.guarantee;
+  if (!g) return;
+  show('sec-guarantee');
+  const typeMap = {
+    money_back: 'Money-back đơn giản',
+    conditional: 'Conditional guarantee',
+    service: 'Service guarantee',
+    better_than_money_back: 'Better-than-money-back'
+  };
+  document.getElementById('g-type').textContent = typeMap[g.type] || g.type || 'Guarantee';
+  document.getElementById('g-duration').textContent = g.duration_days ? g.duration_days + ' ngày' : '';
+  document.getElementById('g-wording').textContent = g.wording || g.conditions || '—';
+}
+
+function renderUrgency(d) {
+  const arr = d.urgency || [];
+  if (!arr.length) return;
+  show('sec-urgency');
+  document.getElementById('urgencyList').innerHTML = arr.map((u, i) => `
+    <div class="card p-5 flex items-start gap-4" style="border-left: 4px solid var(--c-gold);">
+      <div class="step-circle" style="background: var(--c-gold);">${i + 1}</div>
+      <div class="flex-1">
+        <div class="font-semibold text-[15px] mb-1">${escapeHtml(u.mechanism || u.type || '')}</div>
+        <div class="mute text-sm">${escapeHtml(u.reason || u.legitimate_reason || '')}</div>
+        ${u.deadline ? `<div class="small-caps mt-2" style="color:var(--c-accent);">Deadline: ${escapeHtml(u.deadline)}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function renderDifferentiators(d) {
+  const arr = d.differentiators || [];
+  if (!arr.length) return;
+  show('sec-diff');
+  document.getElementById('diffList').innerHTML = arr.map(t => `
+    <div class="card p-4 flex items-start gap-3">
+      <div class="text-2xl accent leading-none">✦</div>
+      <div class="text-[15px] flex-1">${escapeHtml(t)}</div>
+    </div>`).join('');
+}
+
+function renderFAQ(d) {
+  const arr = d.faq || [];
+  if (!arr.length) return;
+  show('sec-faq');
+  document.getElementById('faqList').innerHTML = arr.map((f, i) => `
+    <details class="faq-item px-3" ${i === 0 ? 'open' : ''}>
+      <summary class="faq-q list-none">
+        <span>${escapeHtml(f.q || f.question || '')}</span>
+        <span class="accent text-xl no-print">+</span>
+      </summary>
+      <div class="faq-a">${escapeHtml(f.a || f.answer || '')}</div>
+    </details>`).join('');
+}
+
+/* ============= ORCHESTRATOR ============= */
+function renderAll(d) {
+  renderHeader(d);
+  renderAnchor(d);
+  renderAudiences(d);
+  renderPains(d);
+  renderGains(d);
+  renderNotFor(d);
+  renderBeforeAfter(d);
+  renderMechanism(d);
+  renderValueEquation(d);
+  renderCoreOffer(d);
+  renderBonusStack(d);
+  renderPricing(d);
+  renderGuarantee(d);
+  renderUrgency(d);
+  renderDifferentiators(d);
+  renderFAQ(d);
+}
+
+/* ============= INIT ============= */
+document.addEventListener('DOMContentLoaded', async () => {
+  wireFilePicker();
+  try {
+    const data = await tryCandidates();
+    renderAll(data);
+  } catch (e) {
+    const isFileProto = location.protocol === 'file:';
+    showLoaderBanner(isFileProto
+      ? 'Browser chặn fetch trên file:// — chọn file JSON bên cạnh.'
+      : 'Không tải được file JSON. Đảm bảo `02-offer.json` nằm cùng thư mục với HTML.');
+  }
+});
+</script>
+</body>
+</html>
