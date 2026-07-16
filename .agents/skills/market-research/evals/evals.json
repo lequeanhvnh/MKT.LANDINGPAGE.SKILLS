@@ -1,0 +1,29 @@
+{
+  "skill_name": "market-research",
+  "evals": [
+    {
+      "id": 0,
+      "name": "validate-specific-niche-decision",
+      "prompt": "Em đang định bán khoá học 'AI tools cho freelancer Việt Nam', giá tầm 990K, kế hoạch launch tháng 7 năm nay. Liệu thị trường có đủ lớn không, đã ai làm chưa, có nên proceed hay pivot sang ngách khác? Em làm content creator 2 năm, có 8K followers trên FB chủ yếu là content writer freelancer.",
+      "expected_output": "Niche research report cho 'AI tools cho freelancer VN': keyword data từ WebSearch thực, marketplace evidence (Unica/Edumall/Shopee), demand score 100 điểm có justification, go/no-go decision với rationale + next steps timeline. Personal Alignment score cao do user có background phù hợp.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "discover-from-scratch-pick-niche",
+      "prompt": "Tao muốn làm content sáng tạo trên TikTok kiếm tiền nhưng chưa biết chọn ngách nào. Target audience là Gen Z Việt Nam, tao có background dạy học (giáo viên cấp 3 dạy Văn 5 năm). Brainstorm + pick top 3 niches có cầu thật cho tao, score từng cái và recommend cái nên thử đầu tiên.",
+      "expected_output": "Phase 1 Discover output: ≥10 candidate niches generated qua multiple methods. Phase 2 Validate: top 3 niches với demand signals thực (search, FB groups, TikTok hashtag volumes). Demand score matrix cho top 3. Recommendation 1 niche để start với rationale dựa trên Personal Alignment (background dạy học).",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "tam-sam-som-sizing",
+      "prompt": "Mình muốn biết TAM/SAM/SOM của thị trường khóa học tiếng Anh giao tiếp cho người đi làm tại Việt Nam là bao nhiêu. Cụ thể năm đầu mình target được realistic khoảng nào nếu giá khoá học 2.5M VND và mình là solo creator không có ngân sách ads lớn? Cần con số có nguồn rõ ràng, không đoán suông.",
+      "expected_output": "TAM/SAM/SOM calculation đầy đủ: TAM = total VN white-collar interested in English × avg price, SAM = filter by demographic/geo/psychographic, SOM = realistic Year 1 với assumptions documented. Mỗi number có source citation (WebSearch result). Sanity check: SOM Year 1 không lố (<100M VND = quá nhỏ, >1% market share = quá lạc quan). Output có table và rationale.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

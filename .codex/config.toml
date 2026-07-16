@@ -2,3 +2,6 @@
 max_threads = 12
 max_depth = 2
 job_max_runtime_seconds = 7200
+
+[mcp_servers.supabase]
+url = "https://mcp.supabase.com/mcp?project_ref=vygejqakditopeqnyevr"

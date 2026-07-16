@@ -1,0 +1,106 @@
+{
+  "name": "AI tools cho freelance writer VN",
+  "subtitle": "Validate ngách \"công cụ AI giúp freelance writer Việt Nam giữ khách và tăng giá\" trước khi đầu tư build full course + community.",
+  "date": "2026-05-17",
+  "framework": "Niche Score 7-dim v2026-05-17 · Triangulation ≥3 nguồn · WTP smoke test gate",
+  "total": 69,
+
+  "tldr": [
+    "Niche **69/100 (Solid Go)** với cầu rõ ràng — top course Unica \"AI viết content\" đã có 1.2K học viên, FB Ads chạy 30+ ngày, search volume Vi+En cộng dồn ~12K/tháng.",
+    "Rủi ro lớn nhất là **Defensibility 1/5** — nội dung có thể bị clone trong 6 tháng nếu không xây community lock-in từ đầu. Channel-Market Fit mạnh (11/15) vì user đã có 8K FB cùng niche.",
+    "**Bước kế tiếp:** bắt buộc qua WTP smoke test 2 tuần (waitlist 990K với 500 warm traffic) trước khi build full. Kill nếu <3% conversion."
+  ],
+
+  "scores": [
+    { "key": "problem",     "label": "Problem Severity",            "score": 11, "max": 15, "evidence": "15+ post FB group freelance writer chứa pain 'khách bỏ vì ChatGPT', weekly frequency, income loss ≤12 tháng", "url": "https://www.facebook.com/groups/freelancewritervn" },
+    { "key": "wtp",         "label": "WTP & Unit Economics",        "score": 14, "max": 20, "evidence": "Unica top course 'AI viết content' 1.2K học viên · 3 competitor tier 700K-1.2M có traction", "url": "https://unica.vn" },
+    { "key": "search",      "label": "Search Demand",               "score": 9,  "max": 12, "evidence": "Primary 'AI viết content' ~3K/tháng · portfolio Vi+En cộng dồn ~12K/tháng", "url": "https://ads.google.com/intl/vi_vn/home/tools/keyword-planner/" },
+    { "key": "trend",       "label": "Trend & Timing",              "score": 7,  "max": 10, "evidence": "Google Trends VN rising +200% / 2 năm · ở Early Adopter → Early Majority chasm crossing", "url": "https://trends.google.com/trends/explore?geo=VN&q=AI%20vi%E1%BA%BFt%20content" },
+    { "key": "competition", "label": "Competition & Defensibility", "score": 8,  "max": 15, "evidence": "Sweet spot 7/10 (8 active course + gap rõ 'giữ khách trong AI age') · Moat 1/5 (chỉ audience trust)", "url": "https://www.facebook.com/ads/library/?country=VN" },
+    { "key": "channel",     "label": "Channel-Market Fit",          "score": 11, "max": 15, "evidence": "Audience tập trung FB group + Spiderum + Threads · user có 8K FB cùng niche · CAC organic ≈ 0", "url": "https://spiderum.com" },
+    { "key": "personal",    "label": "Personal Alignment",          "score": 9,  "max": 13, "evidence": "2 năm content writer professional · 8K FB cùng niche · sustainability self-rated cao", "url": "" }
+  ],
+
+  "keywords": [
+    { "kw": "AI viết content (primary)", "vol": 3000, "cpc": 18000, "trend": "up",   "intent": "Commercial · how-to", "src": "Google Keyword Planner VN" },
+    { "kw": "ChatGPT viết bài",          "vol": 2400, "cpc": 14000, "trend": "up",   "intent": "Commercial",          "src": "Google Keyword Planner VN" },
+    { "kw": "AI content marketing VN",   "vol": 1100, "cpc": 22000, "trend": "up",   "intent": "Commercial",          "src": "Coccoc Keyword" },
+    { "kw": "freelance writer AI",       "vol": 880,  "cpc": 11000, "trend": "up",   "intent": "Informational",       "src": "Google Keyword Planner" },
+    { "kw": "prompt viết content",       "vol": 720,  "cpc": 9000,  "trend": "flat", "intent": "Informational",       "src": "Google Keyword Planner VN" },
+    { "kw": "AI writing tools vietnam",  "vol": 1800, "cpc": 28000, "trend": "up",   "intent": "Commercial",          "src": "Google Keyword Planner En" },
+    { "kw": "Jasper AI tiếng việt",      "vol": 480,  "cpc": 33000, "trend": "down", "intent": "Commercial",          "src": "Google Keyword Planner" },
+    { "kw": "viết content bằng AI",      "vol": 1600, "cpc": 12000, "trend": "up",   "intent": "Informational",       "src": "Coccoc Keyword" }
+  ],
+
+  "signals": [
+    { "type": "Course platform", "evidence": "Unica top course 'AI viết content' 1.2K học viên · giá 599K · update 2026-04", "source": "unica.vn/khoa-hoc/ai-viet-content", "date": "2026-05-17" },
+    { "type": "Marketplace",     "evidence": "Shopee 247 product 'AI content' · top seller 1.2K sold · review 4.6/5",        "source": "shopee.vn/search?keyword=AI%20viet%20content", "date": "2026-05-17" },
+    { "type": "Community",       "evidence": "FB group 'Freelance Writer VN' 23K thành viên · 15+ post pain weekly",         "source": "facebook.com/groups/freelancewritervn", "date": "2026-05-17" },
+    { "type": "FB Ads Library",  "evidence": "15 distinct advertiser · 4 ad chạy >30 ngày · creative angle 'giữ khách'",     "source": "facebook.com/ads/library/?country=VN", "date": "2026-05-17" },
+    { "type": "TikTok hashtag",  "evidence": "#aivietcontent 8.2M view · 3 creator >50K follower · CTA về course",            "source": "tiktok.com/tag/aivietcontent", "date": "2026-05-17" },
+    { "type": "Google Trends",   "evidence": "Rising +200% / 2 năm · breakout query 'prompt viết content'",                   "source": "trends.google.com (region: VN)", "date": "2026-05-17" }
+  ],
+
+  "competition": [
+    { "name": "Unica — AI viết content",  "pos": "Mass-market course platform", "price": "599K", "strength": "1.2K học viên, brand Unica",     "gap": "Course 18 tháng tuổi, không update Claude/Gemini" },
+    { "name": "Gitiho — ChatGPT for SME", "pos": "Office worker upskill",        "price": "799K", "strength": "Curriculum chỉn chu, video chuẩn", "gap": "Không nhắm freelance writer specifically" },
+    { "name": "Coach A (FB personal)",    "pos": "Influencer-led 1-on-1",        "price": "5M",   "strength": "Community 12K · daily content",  "gap": "Premium tier, không có entry course" },
+    { "name": "Course B (own site)",      "pos": "AI prompt thư viện",           "price": "299K", "strength": "Tripwire low-tier, traffic FB",  "gap": "Không có ladder lên premium" },
+    { "name": "Edumall — AI marketing",   "pos": "Generalist AI marketing",      "price": "499K", "strength": "Lifetime deal, 800+ enrolled",   "gap": "Quá rộng, không focus writer" }
+  ],
+
+  "unitEcon": {
+    "gross": 990000,
+    "platformFeePct": 0.15,
+    "refundPct": 0.08,
+    "marketingPct": 0.25,
+    "ltvBlended": 2450000,
+    "cacCeiling": 815000
+  },
+
+  "ladder": [
+    { "tier": "Tripwire",  "name": "Mini workshop AI prompts",  "price_display": "99.000đ" },
+    { "tier": "Core",      "name": "Khoá học AI cho writer",    "price_display": "990.000đ" },
+    { "tier": "Premium",   "name": "1-on-1 coaching 4 buổi",     "price_display": "4.990.000đ" },
+    { "tier": "Recurring", "name": "Community thành viên",       "price_display": "199.000đ/tháng" }
+  ],
+
+  "funnel": {
+    "tam":     72000000000,
+    "sam":      9600000000,
+    "somLow":    120000000,
+    "somBase":   320000000,
+    "somHigh":   680000000,
+    "tamNote":  "80K freelance writer VN × 900K avg spend/year",
+    "samNote":  "Geo HN+SG · 30-45 · active freelancer",
+    "somLowNote":  "Conservative (slow ramp · paid heavy)",
+    "somBaseNote": "Base case (10 cohort × 50 student × 990K minus haircut)",
+    "somHighNote": "Optimistic scenario (organic + virality)"
+  },
+
+  "wtpTest": {
+    "step1": "1-2 ngày qua `ui-ux-pro-max`. Promise + CTA waitlist với giá thật **990K**.",
+    "step2": "200-500 warm visit · 500K-2M FB Ads test · 5 piece organic content.",
+    "step3": "Waitlist ≥5% = signal valid. Pre-pay ≥1% = signal mạnh nhất.",
+    "step4": "Proceed MVP / pivot offer / kill — không kéo dài giả định.",
+    "proceedRule":  "Waitlist ≥ 5% · Pre-pay ≥ 1%",
+    "iterateRule":  "Waitlist 2-5% — giảm giá 30-50% hoặc pivot offer",
+    "killRule":     "Waitlist < 2% · < 7 ngày traffic"
+  },
+
+  "premortem": [
+    "Waitlist conversion < 3% sau 500 warm traffic (90 ngày)",
+    "0 organic content piece đạt > 5K reach trong 30 ngày đầu",
+    "≥ 2 large competitor cùng launch offer 'AI cho writer' tier giá overlap (window closed)",
+    "Effective CAC > 815K (vượt LTV÷3 ceiling)",
+    "Refund rate cohort đầu > 15% (signal product-market mismatch)",
+    "Personal cost > 40h/tuần × 90 ngày mà revenue < 20M (burnout floor)"
+  ],
+
+  "timeline": [
+    { "period": "Tuần 1-2", "action": "WTP smoke test — build landing waitlist 990K, drive 500 traffic FB Ads + organic", "output": "Landing live + 500 visit + waitlist count", "metric": "≥ 25 waitlist (5%) hoặc ≥ 5 pre-pay (1%)" },
+    { "period": "Tuần 3-4", "action": "10 customer interview định tính với waitlist signup",                              "output": "Pain/Gain map + offer refinement",          "metric": "≥ 8 interview hoàn thành · ≥ 60% nhắc 'giữ khách'" },
+    { "period": "Tháng 2",  "action": "Build MVP — 6 module core + community private",                                    "output": "Beta cohort 20 học viên giá early 690K",     "metric": "Đầy cohort trong 14 ngày · NPS ≥ 40" },
+    { "period": "Tháng 3",  "action": "Launch public — full price 990K + tripwire 99K + upsell coaching 5M",              "output": "Conversion data thật + LTV cohort",          "metric": "≥ 50 sale tháng 3 · LTV/CAC ≥ 3" }
+  ]
+}

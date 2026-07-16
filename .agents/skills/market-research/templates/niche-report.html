@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title id="page-title">Niche Research Report</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --c-accent: #D97757;
+    --c-accent-soft: #F4D8C9;
+    --c-bg: #FAFAF7;
+    --c-paper: #FFFFFF;
+    --c-ink: #1F1F1F;
+    --c-mute: #6B6B66;
+    --c-line: #E8E5DD;
+    --c-go: #5B8C5A;
+    --c-solid: #B89A2E;
+    --c-marg: #C97A37;
+    --c-pass: #B0463C;
+  }
+  html, body { background: var(--c-bg); color: var(--c-ink); }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  .font-serif-display { font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif; font-feature-settings: 'kern','liga'; }
+  .ink { color: var(--c-ink); }
+  .mute { color: var(--c-mute); }
+  .accent { color: var(--c-accent); }
+  .bg-accent { background-color: var(--c-accent); }
+  .bg-accent-soft { background-color: var(--c-accent-soft); }
+  .border-line { border-color: var(--c-line); }
+  .bg-paper { background-color: var(--c-paper); }
+  .card {
+    background: var(--c-paper);
+    border: 1px solid var(--c-line);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(31,31,31,0.04), 0 4px 16px rgba(31,31,31,0.03);
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px;
+    font-weight: 600; font-size: 13px; letter-spacing: 0.02em;
+  }
+  .pill-go     { background: #E7F0E5; color: var(--c-go);   border: 1px solid #C8DCC4; }
+  .pill-solid  { background: #F6EFD1; color: var(--c-solid);border: 1px solid #E5D89A; }
+  .pill-marg   { background: #F7E2D0; color: var(--c-marg); border: 1px solid #EFC7A5; }
+  .pill-pass   { background: #F3D6D2; color: var(--c-pass); border: 1px solid #E5B3AD; }
+  .progress-track {
+    width: 100%; height: 8px; background: #F0EDE5; border-radius: 999px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #D97757 0%, #EBB394 100%);
+    border-radius: 999px;
+    transition: width 600ms ease;
+  }
+  .kbd-link { color: var(--c-accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .kbd-link:hover { text-decoration-thickness: 2px; }
+  .section-rule {
+    height: 1px; background: linear-gradient(90deg, var(--c-line), transparent);
+    margin: 0;
+  }
+  .small-caps {
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 11px; font-weight: 600; color: var(--c-mute);
+  }
+  .table-clean th {
+    text-align: left; font-weight: 600; font-size: 12px; color: var(--c-mute);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 12px 14px; border-bottom: 1px solid var(--c-line);
+  }
+  .table-clean td {
+    padding: 14px; border-bottom: 1px solid var(--c-line); vertical-align: top; font-size: 14px;
+  }
+  .table-clean tr:last-child td { border-bottom: 0; }
+  .table-clean tr.total-row td { font-weight: 700; background: #FBF8F2; }
+  .trend-up    { color: var(--c-go); font-weight: 600; }
+  .trend-flat  { color: var(--c-mute); font-weight: 600; }
+  .trend-down  { color: var(--c-pass); font-weight: 600; }
+  .checkbox-row {
+    display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--c-line);
+  }
+  .checkbox-row:last-child { border-bottom: 0; }
+  .checkbox-row input[type="checkbox"] {
+    width: 18px; height: 18px; margin-top: 2px; accent-color: var(--c-accent);
+  }
+  .verdict-score {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .ne-bar {
+    display: flex; height: 32px; border-radius: 8px; overflow: hidden; border: 1px solid var(--c-line);
+  }
+  .ne-bar > div { display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff; font-weight: 600; }
+  .funnel-row { display: flex; align-items: center; gap: 16px; margin: 10px 0; }
+  .funnel-label { width: 110px; font-size: 12px; color: var(--c-mute); text-transform: uppercase; letter-spacing: 0.08em; }
+  .funnel-bar-wrap { flex: 1; background: #F0EDE5; border-radius: 8px; height: 36px; position: relative; overflow: hidden; }
+  .funnel-bar { height: 100%; background: linear-gradient(90deg, #D97757, #EBB394); display: flex; align-items: center; padding-left: 14px; color: #fff; font-weight: 600; font-size: 13px; border-radius: 8px; }
+  .funnel-num { width: 140px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  @media print {
+    body { background: #fff; }
+    .no-print { display: none !important; }
+    .card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    section { page-break-inside: avoid; }
+    a { color: #1F1F1F; text-decoration: none; }
+    canvas { max-width: 600px; }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<main class="max-w-[1100px] mx-auto px-5 md:px-8 py-8 md:py-14">
+
+  <!-- ========== LOADER BANNER (shown only when fetch fails on file://) ========== -->
+  <div id="loaderBanner" class="hidden mb-8 card p-5 md:p-6" style="border-color: var(--c-accent); background: #FFF4ED;">
+    <div class="flex items-start gap-4 flex-wrap">
+      <div class="flex-1 min-w-[260px]">
+        <div class="small-caps accent mb-1">Cần tải dữ liệu</div>
+        <h3 class="font-serif-display text-xl md:text-2xl mb-2">Không tự đọc được file JSON từ <code class="text-sm">file://</code></h3>
+        <p class="mute text-sm leading-relaxed">
+          Mở qua local server để auto-load: <code class="text-xs px-2 py-1 rounded bg-accent-soft accent">npx serve .</code> hoặc VSCode Live Server.<br/>
+          Hoặc kéo-thả / chọn file <code class="text-xs">.json</code> bên cạnh đây.
+        </p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="pill pill-solid cursor-pointer">
+          <input type="file" id="fileInput" accept="application/json,.json" class="hidden" />
+          📂 Chọn file JSON
+        </label>
+        <span id="loaderError" class="text-xs text-red-700 hidden"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <section class="mb-10">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <div class="small-caps">Niche Research Report</div>
+      <div class="small-caps" id="header-date">—</div>
+    </div>
+
+    <h1 id="niche-name" class="font-serif-display text-4xl md:text-6xl leading-[1.05] tracking-tight mb-4">—</h1>
+    <p id="niche-subtitle" class="mute text-base md:text-lg max-w-3xl">—</p>
+
+    <div class="mt-8 flex flex-wrap items-end gap-8">
+      <div>
+        <div class="small-caps mb-1">Tổng điểm</div>
+        <div class="verdict-score text-7xl md:text-8xl">
+          <span id="score-total">—</span><span class="mute text-3xl md:text-4xl">/100</span>
+        </div>
+      </div>
+      <div>
+        <div class="small-caps mb-2">Verdict</div>
+        <span id="verdict-pill" class="pill pill-pass">—</span>
+      </div>
+      <div class="flex-1 min-w-[240px]">
+        <div class="small-caps mb-2">Framework</div>
+        <div class="text-sm" id="framework-label">—</div>
+      </div>
+    </div>
+
+    <div class="section-rule mt-10"></div>
+  </section>
+
+  <!-- ========== TL;DR ========== -->
+  <section class="mb-12">
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      <div>
+        <h2 class="font-serif-display text-2xl md:text-3xl mb-2">Câu chuyện ngắn</h2>
+        <p class="mute text-sm">3-5 dòng tóm tắt: niche này đáng làm không, vì sao, rủi ro lớn nhất, bước tiếp theo.</p>
+      </div>
+      <div class="md:col-span-2 card p-6 md:p-7">
+        <div id="tldrBody" class="space-y-3 text-[15px] leading-relaxed"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RADAR ========== -->
+  <section class="mb-12">
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      <div>
+        <h2 class="font-serif-display text-2xl md:text-3xl mb-2">Phân tích 7 chiều</h2>
+        <p class="mute text-sm">Mỗi trục normalize về 0-100% max của dimension đó. Đường mờ là ngưỡng Solid Go (60% mỗi chiều) — niche cần phủ rộng, không chỉ cao 1-2 chiều.</p>
+      </div>
+      <div class="md:col-span-2 card p-5 md:p-6">
+        <div style="position:relative; height: 420px;">
+          <canvas id="radarChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SCORE BREAKDOWN TABLE ========== -->
+  <section class="mb-12">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Bảng điểm từng chiều</h2>
+    <div class="card overflow-hidden">
+      <table class="table-clean w-full">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Dimension</th>
+            <th style="width: 12%;">Điểm</th>
+            <th style="width: 35%;">Evidence (1 dòng)</th>
+            <th style="width: 25%;">Mức độ phủ</th>
+          </tr>
+        </thead>
+        <tbody id="scoreTableBody">
+          <!-- rows injected by JS from niche.scores -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== KEYWORD PORTFOLIO ========== -->
+  <section class="mb-12">
+    <div class="flex items-baseline justify-between mb-4 flex-wrap gap-3">
+      <h2 class="font-serif-display text-2xl md:text-3xl">Bộ từ khoá</h2>
+      <span class="small-caps">Vi + En, Google Keyword Planner VN</span>
+    </div>
+    <div class="card overflow-x-auto">
+      <table class="table-clean w-full min-w-[720px]">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th class="text-right">Volume / tháng</th>
+            <th class="text-right">CPC (VND)</th>
+            <th>Trend</th>
+            <th>Intent</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="keywordTableBody"></tbody>
+        <tfoot id="keywordTableFoot"></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== DEMAND SIGNALS ========== -->
+  <section class="mb-12">
+    <div class="flex items-baseline justify-between mb-4 flex-wrap gap-3">
+      <h2 class="font-serif-display text-2xl md:text-3xl">Tín hiệu cầu (triangulate ≥3 nguồn)</h2>
+      <span class="small-caps">Marketplace · Course · Community · Ads</span>
+    </div>
+    <div class="card overflow-x-auto">
+      <table class="table-clean w-full min-w-[760px]">
+        <thead>
+          <tr>
+            <th style="width: 18%;">Loại tín hiệu</th>
+            <th style="width: 42%;">Evidence</th>
+            <th style="width: 25%;">Source</th>
+            <th style="width: 15%;">Date</th>
+          </tr>
+        </thead>
+        <tbody id="signalsTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== COMPETITION LANDSCAPE ========== -->
+  <section class="mb-12">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Bối cảnh cạnh tranh</h2>
+    <div class="card overflow-x-auto">
+      <table class="table-clean w-full min-w-[800px]">
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Positioning</th>
+            <th>Price</th>
+            <th>Strength</th>
+            <th>Gap / Weakness</th>
+          </tr>
+        </thead>
+        <tbody id="competitionTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== UNIT ECONOMICS ========== -->
+  <section class="mb-12">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Kinh tế đơn vị</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-6">
+        <div class="small-caps mb-3">Gross → Net per sale</div>
+        <p class="mute text-sm mb-4">Hiển thị haircut từ giá niêm yết xuống tiền net thực sự về tay sau platform fee, refund, marketing.</p>
+        <div style="position:relative; height: 240px;">
+          <canvas id="netBarChart"></canvas>
+        </div>
+        <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+          <div><div class="small-caps">Gross price</div><div class="font-semibold" id="ue-gross">990.000đ</div></div>
+          <div><div class="small-caps">Platform fee</div><div class="font-semibold" id="ue-platform">-15% (75K)</div></div>
+          <div><div class="small-caps">Refund</div><div class="font-semibold" id="ue-refund">-8% (79K)</div></div>
+          <div><div class="small-caps">Marketing / sale</div><div class="font-semibold" id="ue-mkt">-25% (248K)</div></div>
+          <div class="col-span-2 pt-3 border-t border-line"><div class="small-caps">Effective net</div><div class="font-semibold accent text-lg" id="ue-net">≈ 588.000đ</div></div>
+        </div>
+      </div>
+
+      <div class="card p-6">
+        <div class="small-caps mb-3">LTV backend ladder</div>
+        <p class="mute text-sm mb-4">Tripwire → Core → Premium → Recurring. LTV ≥ 3× first sale = ladder lành mạnh.</p>
+
+        <div id="ladderBody" class="space-y-3 text-sm"></div>
+
+        <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+          <div><div class="small-caps">LTV (12m blended)</div><div class="font-semibold" id="ltv-blended">—</div></div>
+          <div><div class="small-caps">CAC ceiling (LTV÷3)</div><div class="font-semibold" id="cac-ceiling">—</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TAM/SAM/SOM ========== -->
+  <section class="mb-12">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">TAM / SAM / SOM Việt Nam</h2>
+    <div class="card p-6">
+      <div id="funnelContainer"></div>
+
+      <div class="mt-6 grid md:grid-cols-3 gap-4 text-sm">
+        <div class="p-4 rounded-lg" style="border:1px solid var(--c-line);background:#FBF8F2;">
+          <div class="small-caps mb-1">Conservative</div>
+          <div class="font-serif-display text-2xl font-semibold" id="som-low">120 M</div>
+          <div class="mute">SOM Y1 VND</div>
+        </div>
+        <div class="p-4 rounded-lg" style="border:1px solid var(--c-accent-soft);background:#FFF4ED;">
+          <div class="small-caps mb-1">Base</div>
+          <div class="font-serif-display text-2xl font-semibold accent" id="som-base">320 M</div>
+          <div class="mute">SOM Y1 VND</div>
+        </div>
+        <div class="p-4 rounded-lg" style="border:1px solid var(--c-line);background:#FBF8F2;">
+          <div class="small-caps mb-1">Optimistic</div>
+          <div class="font-serif-display text-2xl font-semibold" id="som-high">680 M</div>
+          <div class="mute">SOM Y1 VND</div>
+        </div>
+      </div>
+
+      <p class="mute text-sm mt-5">
+        Sensitivity: biến nhạy nhất với SOM = <strong>conversion rate landing → buyer</strong> (1-3% range = 3× gap). Sanity: SOM Base &gt;100M = không quá nhỏ cho solo, &lt;1% market share = không quá lạc quan.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== WTP SMOKE TEST ========== -->
+  <section class="mb-12">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Test WTP — Smoke Test Plan</h2>
+    <div class="card p-6">
+      <p class="mute text-sm mb-5">Bắt buộc cho score 60-79. Chạy trước khi spend &gt;5M VND build MVP.</p>
+
+      <div class="grid md:grid-cols-4 gap-4 mb-6">
+        <div>
+          <div class="small-caps mb-2">Bước 1</div>
+          <div class="font-semibold mb-1">Landing 1-page</div>
+          <p class="text-sm mute" id="wtp-step1">—</p>
+        </div>
+        <div>
+          <div class="small-caps mb-2">Bước 2</div>
+          <div class="font-semibold mb-1">Drive traffic</div>
+          <p class="text-sm mute" id="wtp-step2">—</p>
+        </div>
+        <div>
+          <div class="small-caps mb-2">Bước 3</div>
+          <div class="font-semibold mb-1">Đo số</div>
+          <p class="text-sm mute" id="wtp-step3">—</p>
+        </div>
+        <div>
+          <div class="small-caps mb-2">Bước 4</div>
+          <div class="font-semibold mb-1">Quyết định</div>
+          <p class="text-sm mute" id="wtp-step4">—</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="p-4 rounded-lg" style="background:#E7F0E5;border:1px solid #C8DCC4;">
+          <div class="small-caps" style="color:var(--c-go);">Proceed</div>
+          <div class="font-semibold mt-1" id="wtp-proceed">—</div>
+        </div>
+        <div class="p-4 rounded-lg" style="background:#F6EFD1;border:1px solid #E5D89A;">
+          <div class="small-caps" style="color:var(--c-solid);">Iterate</div>
+          <div class="font-semibold mt-1" id="wtp-iterate">—</div>
+        </div>
+        <div class="p-4 rounded-lg" style="background:#F3D6D2;border:1px solid #E5B3AD;">
+          <div class="small-caps" style="color:var(--c-pass);">Kill</div>
+          <div class="font-semibold mt-1" id="wtp-kill">—</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRE-MORTEM ========== -->
+  <section class="mb-12">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-2">Pre-mortem — Falsification triggers</h2>
+    <p class="mute text-sm mb-5">Trong 90 ngày, nếu <strong>bất kỳ 2 signal nào</strong> xuất hiện đồng thời — kill niche thay vì double-down.</p>
+    <div class="card p-6">
+      <div id="premortemList"></div>
+    </div>
+  </section>
+
+  <!-- ========== NEXT STEPS TIMELINE ========== -->
+  <section class="mb-12">
+    <h2 class="font-serif-display text-2xl md:text-3xl mb-5">Bước kế tiếp — 90 ngày</h2>
+    <div class="card overflow-hidden">
+      <table class="table-clean w-full">
+        <thead>
+          <tr>
+            <th style="width: 18%;">Mốc thời gian</th>
+            <th style="width: 32%;">Hành động chính</th>
+            <th style="width: 25%;">Output kỳ vọng</th>
+            <th style="width: 25%;">Success metric</th>
+          </tr>
+        </thead>
+        <tbody id="timelineBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="mt-16 pt-8 border-t border-line">
+    <div class="flex flex-wrap items-center justify-between gap-3 text-sm mute">
+      <div>
+        Generated by <code class="text-xs px-1.5 py-0.5 rounded bg-accent-soft accent">/market-research</code> skill · BIZ.MKT.OS
+      </div>
+      <div>
+        Framework: Niche Score 7-dim v2026-05-17 · <span id="footer-date">2026-05-17</span>
+      </div>
+    </div>
+    <p class="mute text-xs mt-3 max-w-3xl">
+      Mọi claim trong báo cáo bắt buộc triangulate ≥3 nguồn độc lập. 1 source = anecdote · 2 = coincidence · 3 = signal. Honest score = useful score — không inflate để justify quyết định đã định sẵn.
+    </p>
+  </footer>
+
+</main>
+
+<script>
+/* =========================================================
+   NICHE REPORT — JSON-driven renderer
+   Loads `./<slug>.json` (or a known filename), then renders
+   every chart + table + section from the data object.
+
+   Resolution order:
+   1. ?data=<path>  URL param
+   2. ./01-niche-research.json
+   3. ./niche-report.json
+   4. ./niche-report.sample.json   (for previewing the template itself)
+   5. file:// fallback → show banner with file picker
+   ========================================================= */
+const CANDIDATE_URLS = [
+  '01-niche-research.json',
+  'niche-report.json',
+  'niche-report.sample.json'
+];
+
+/* ============= HELPERS ============= */
+const VND   = n => Number(n).toLocaleString('vi-VN') + 'đ';
+const VND_M = n => {
+  const x = Number(n);
+  if (x >= 1_000_000_000) return (x/1_000_000_000).toFixed(1).replace(/\.0$/,'') + ' tỷ';
+  if (x >= 1_000_000)     return Math.round(x/1_000_000) + 'M';
+  return VND(x);
+};
+const trendIcon = t => t === 'up' ? '<span class="trend-up">↑ tăng</span>'
+                    : t === 'down' ? '<span class="trend-down">↓ giảm</span>'
+                    : '<span class="trend-flat">→ flat</span>';
+const mdBold = s => String(s ?? '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+/* ============= DATA LOADING ============= */
+async function fetchOne(url) {
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
+}
+async function tryCandidates() {
+  const params = new URLSearchParams(location.search);
+  const override = params.get('data');
+  const urls = override ? [override, ...CANDIDATE_URLS] : CANDIDATE_URLS;
+  for (const u of urls) {
+    try { return await fetchOne(u); } catch (e) { /* try next */ }
+  }
+  throw new Error('No JSON data file found');
+}
+function showLoaderBanner(msg) {
+  const b = document.getElementById('loaderBanner');
+  b.classList.remove('hidden');
+  if (msg) {
+    const err = document.getElementById('loaderError');
+    err.textContent = msg;
+    err.classList.remove('hidden');
+  }
+}
+function hideLoaderBanner() {
+  document.getElementById('loaderBanner').classList.add('hidden');
+}
+function wireFilePicker() {
+  document.getElementById('fileInput').addEventListener('change', async (ev) => {
+    const f = ev.target.files?.[0];
+    if (!f) return;
+    try {
+      const text = await f.text();
+      const data = JSON.parse(text);
+      hideLoaderBanner();
+      renderAll(data);
+    } catch (e) {
+      const err = document.getElementById('loaderError');
+      err.textContent = 'File không hợp lệ: ' + e.message;
+      err.classList.remove('hidden');
+    }
+  });
+}
+
+/* ============= RENDERERS ============= */
+function renderHeader(d) {
+  document.getElementById('page-title').textContent = `Niche Research Report — ${d.name}`;
+  document.getElementById('niche-name').textContent = d.name || '—';
+  document.getElementById('niche-subtitle').innerHTML = mdBold(d.subtitle || '');
+  document.getElementById('header-date').textContent = d.date || '';
+  document.getElementById('footer-date').textContent = d.date || '';
+  document.getElementById('framework-label').textContent = d.framework || 'Niche Score 7-dim · Triangulation ≥3 nguồn · WTP smoke test gate';
+  document.getElementById('score-total').textContent = d.total ?? '—';
+
+  const pill = document.getElementById('verdict-pill');
+  const t = Number(d.total) || 0;
+  let cls = 'pill-pass', label = 'Pass';
+  if (t >= 80)      { cls = 'pill-go';    label = 'Strong Go'; }
+  else if (t >= 60) { cls = 'pill-solid'; label = 'Solid Go'; }
+  else if (t >= 40) { cls = 'pill-marg';  label = 'Marginal'; }
+  pill.className = 'pill ' + cls;
+  pill.textContent = label;
+}
+
+function renderTLDR(d) {
+  const lines = Array.isArray(d.tldr) ? d.tldr : [];
+  document.getElementById('tldrBody').innerHTML = lines.map(line =>
+    `<p>${mdBold(line)}</p>`
+  ).join('');
+}
+
+function renderRadar(d) {
+  const ctx = document.getElementById('radarChart');
+  const scores = d.scores || [];
+  new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: scores.map(s => s.label),
+      datasets: [
+        { label: 'Niche của bạn',
+          data: scores.map(s => Math.round((s.score / s.max) * 100)),
+          backgroundColor: 'rgba(217,119,87,0.18)',
+          borderColor: '#D97757', borderWidth: 2,
+          pointBackgroundColor: '#D97757', pointRadius: 4 },
+        { label: 'Ngưỡng Solid Go (60%)',
+          data: scores.map(() => 60),
+          backgroundColor: 'rgba(107,107,102,0.06)',
+          borderColor: '#6B6B66', borderWidth: 1,
+          borderDash: [4,4], pointRadius: 0 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'Inter', size: 12 }, color: '#1F1F1F' } },
+        tooltip: { callbacks: { label: (c) => c.dataset.label + ': ' + c.formattedValue + '%' } }
+      },
+      scales: {
+        r: { min: 0, max: 100,
+          ticks: { stepSize: 20, color: '#6B6B66', backdropColor: 'transparent', font: { size: 10 } },
+          grid: { color: '#E8E5DD' }, angleLines: { color: '#E8E5DD' },
+          pointLabels: { color: '#1F1F1F', font: { family: 'Inter', size: 12 } }
+        }
+      }
+    }
+  });
+}
+
+function renderScoreTable(d) {
+  document.getElementById('scoreTableBody').innerHTML = (d.scores || []).map(s => {
+    const pct = Math.round((s.score / s.max) * 100);
+    const ev = s.url
+      ? `${s.evidence} <a href="${s.url}" target="_blank" rel="noopener" class="kbd-link">source</a>`
+      : s.evidence;
+    return `<tr>
+      <td class="font-semibold">${s.label}</td>
+      <td><span class="font-serif-display text-xl">${s.score}</span><span class="mute"> / ${s.max}</span></td>
+      <td class="mute">${ev}</td>
+      <td>
+        <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+        <div class="small-caps mt-1">${pct}%</div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function renderKeywords(d) {
+  const kws = d.keywords || [];
+  document.getElementById('keywordTableBody').innerHTML = kws.map(k => `
+    <tr>
+      <td class="font-medium">${k.kw}</td>
+      <td class="text-right" style="font-variant-numeric:tabular-nums">${Number(k.vol).toLocaleString('vi-VN')}</td>
+      <td class="text-right" style="font-variant-numeric:tabular-nums">${Number(k.cpc).toLocaleString('vi-VN')}</td>
+      <td>${trendIcon(k.trend)}</td>
+      <td class="mute">${k.intent}</td>
+      <td class="mute text-xs">${k.src}</td>
+    </tr>`).join('');
+  const total = kws.reduce((a,k) => a + Number(k.vol || 0), 0);
+  document.getElementById('keywordTableFoot').innerHTML = `
+    <tr class="total-row">
+      <td>Total Addressable Search Volume</td>
+      <td class="text-right" style="font-variant-numeric:tabular-nums">${total.toLocaleString('vi-VN')} / tháng</td>
+      <td colspan="4" class="mute">Vi + En cộng dồn</td>
+    </tr>`;
+}
+
+function renderSignals(d) {
+  document.getElementById('signalsTableBody').innerHTML = (d.signals || []).map(s => `
+    <tr>
+      <td class="font-semibold">${s.type}</td>
+      <td>${s.evidence}</td>
+      <td class="mute"><a href="${s.source.startsWith('http') ? s.source : 'https://' + s.source}" target="_blank" rel="noopener" class="kbd-link">${s.source}</a></td>
+      <td class="mute small-caps" style="font-variant-numeric:tabular-nums">${s.date}</td>
+    </tr>`).join('');
+}
+
+function renderCompetition(d) {
+  document.getElementById('competitionTableBody').innerHTML = (d.competition || []).map(c => `
+    <tr>
+      <td class="font-semibold">${c.name}</td>
+      <td>${c.pos}</td>
+      <td class="font-medium">${c.price}</td>
+      <td class="mute">${c.strength}</td>
+      <td>${c.gap}</td>
+    </tr>`).join('');
+}
+
+function renderUnitEcon(d) {
+  const ue = d.unitEcon;
+  if (!ue) return;
+  const platformFee = Math.round(ue.gross * ue.platformFeePct);
+  const refund      = Math.round(ue.gross * ue.refundPct);
+  const marketing   = Math.round(ue.gross * ue.marketingPct);
+  const net         = ue.gross - platformFee - refund - marketing;
+
+  document.getElementById('ue-gross').textContent    = VND(ue.gross);
+  document.getElementById('ue-platform').textContent = `-${Math.round(ue.platformFeePct*100)}% (${VND(platformFee)})`;
+  document.getElementById('ue-refund').textContent   = `-${Math.round(ue.refundPct*100)}% (${VND(refund)})`;
+  document.getElementById('ue-mkt').textContent      = `-${Math.round(ue.marketingPct*100)}% (${VND(marketing)})`;
+  document.getElementById('ue-net').textContent      = `≈ ${VND(net)}`;
+  document.getElementById('ltv-blended').textContent = VND(ue.ltvBlended);
+  document.getElementById('cac-ceiling').textContent = VND(ue.cacCeiling);
+
+  new Chart(document.getElementById('netBarChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Gross', 'Sau platform fee', 'Sau refund', 'Net per sale'],
+      datasets: [{
+        data: [ue.gross, ue.gross - platformFee, ue.gross - platformFee - refund, net],
+        backgroundColor: ['#D97757','#E08F70','#E8AB8C','#EBB394'],
+        borderRadius: 6, barThickness: 30
+      }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+                 tooltip: { callbacks: { label: (c) => VND(c.parsed.x) } } },
+      scales: {
+        x: { ticks: { color: '#6B6B66', callback: v => (v/1000).toFixed(0) + 'K' }, grid: { color: '#F0EDE5' } },
+        y: { ticks: { color: '#1F1F1F', font: { family: 'Inter', size: 12 } }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+function renderLadder(d) {
+  const bg = ['#FBF8F2','#F6EAE0','#F0DDD0','#E8D0C0'];
+  const items = d.ladder || [];
+  document.getElementById('ladderBody').innerHTML = items.map((it, i) => `
+    <div class="flex items-center justify-between p-3 rounded-lg" style="background:${bg[i % bg.length]};border:1px solid var(--c-line);">
+      <div>
+        <div class="small-caps">${it.tier}</div>
+        <div class="font-semibold">${it.name}</div>
+      </div>
+      <div class="font-semibold">${it.price_display}</div>
+    </div>`).join('');
+}
+
+function renderFunnel(d) {
+  const f = d.funnel;
+  if (!f) return;
+  const max = f.tam || 1;
+  const rows = [
+    { label: 'TAM',           value: f.tam,     note: f.tamNote     || 'Total potential buyers × avg price' },
+    { label: 'SAM',           value: f.sam,     note: f.samNote     || 'Geo + demo + psycho filter' },
+    { label: 'SOM Y1 Optim.', value: f.somHigh, note: f.somHighNote || 'Optimistic scenario' },
+    { label: 'SOM Y1 Base',   value: f.somBase, note: f.somBaseNote || 'Base case' },
+    { label: 'SOM Y1 Cons.',  value: f.somLow,  note: f.somLowNote  || 'Conservative scenario' }
+  ];
+  document.getElementById('funnelContainer').innerHTML = rows.map(r => {
+    const pct = Math.max(2, (r.value / max) * 100);
+    return `<div class="funnel-row">
+      <div class="funnel-label">${r.label}</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-bar" style="width:${pct}%">${r.note}</div>
+      </div>
+      <div class="funnel-num">${VND_M(r.value)} VND</div>
+    </div>`;
+  }).join('');
+  document.getElementById('som-low').textContent  = VND_M(f.somLow);
+  document.getElementById('som-base').textContent = VND_M(f.somBase);
+  document.getElementById('som-high').textContent = VND_M(f.somHigh);
+}
+
+function renderWTP(d) {
+  const w = d.wtpTest || {};
+  const set = (id, val) => { const el = document.getElementById(id); if (el && val != null) el.innerHTML = mdBold(val); };
+  set('wtp-step1', w.step1);
+  set('wtp-step2', w.step2);
+  set('wtp-step3', w.step3);
+  set('wtp-step4', w.step4);
+  set('wtp-proceed', w.proceedRule);
+  set('wtp-iterate', w.iterateRule);
+  set('wtp-kill',    w.killRule);
+}
+
+function renderPremortem(d) {
+  document.getElementById('premortemList').innerHTML = (d.premortem || []).map(p => `
+    <label class="checkbox-row">
+      <input type="checkbox" />
+      <span class="text-[15px]">${mdBold(p)}</span>
+    </label>`).join('');
+}
+
+function renderTimeline(d) {
+  document.getElementById('timelineBody').innerHTML = (d.timeline || []).map(t => `
+    <tr>
+      <td class="font-semibold">${t.period}</td>
+      <td>${t.action}</td>
+      <td class="mute">${t.output}</td>
+      <td class="accent font-medium">${t.metric}</td>
+    </tr>`).join('');
+}
+
+/* ============= ORCHESTRATOR ============= */
+function renderAll(d) {
+  renderHeader(d);
+  renderTLDR(d);
+  renderRadar(d);
+  renderScoreTable(d);
+  renderKeywords(d);
+  renderSignals(d);
+  renderCompetition(d);
+  renderUnitEcon(d);
+  renderLadder(d);
+  renderFunnel(d);
+  renderWTP(d);
+  renderPremortem(d);
+  renderTimeline(d);
+}
+
+/* ============= INIT ============= */
+document.addEventListener('DOMContentLoaded', async () => {
+  wireFilePicker();
+  try {
+    const data = await tryCandidates();
+    renderAll(data);
+  } catch (e) {
+    const isFileProto = location.protocol === 'file:';
+    showLoaderBanner(isFileProto
+      ? 'Browser chặn fetch trên file:// — chọn file JSON bên cạnh.'
+      : 'Không tải được file JSON. Đảm bảo `01-niche-research.json` nằm cùng thư mục với HTML.');
+  }
+});
+</script>
+</body>
+</html>

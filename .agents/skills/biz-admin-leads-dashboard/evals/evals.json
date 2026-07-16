@@ -1,0 +1,36 @@
+{
+  "skill_name": "biz-admin-leads-dashboard",
+  "description": "Eval set cho skill scaffold trang /admin CRM-style (1CRM-inspired) với Supabase backend, charts (recharts), và email marketing tab.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Em đã setup Sepay payment với Supabase và đã có /biz-email-setup wire SMTP rồi. Giờ em muốn trang /admin có dashboard kiểu 1CRM trực quan — có biểu đồ leads theo ngày, tỷ lệ chuyển đổi, doanh thu — và có chỗ gửi email khuyến mãi cho khách. Pass tạm `123456`.",
+      "expected_output": "Skill detect đầy đủ pre-reqs (Supabase store + SMTP env), hỏi confirm pass, hướng dẫn cài recharts, paste SQL migration vào Supabase, scaffold 8 file (4 lib + 4 route + 1 page). Output có 3 tab Tổng quan / Khách hàng / Email marketing, KPI cards có delta arrow, line chart + donut. Hướng dẫn test 3 cấp.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "biz-admin-leads-dashboard",
+      "expected_output": "Skill được trigger trực tiếp qua tên — bắt đầu Phase 0 detect Next.js App Router + verify lib/leads-supabase.ts + verify SMTP env, rồi ask user password.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Em muốn dashboard admin theo dõi leads theo ngày tuần tháng, xem conversion rate, và set up email server để gửi quảng cáo cho khách hàng",
+      "expected_output": "Skill trigger với understanding rằng user muốn: (a) dashboard analytics có time-series + conversion, (b) email marketing bulk send. Bắt đầu Phase 0 detect pre-reqs, nếu thiếu Supabase/SMTP thì bảo chạy /biz-setup-sepay-payment hoặc /biz-email-setup trước.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Project của em đang dùng Vercel KV cho lead store. Cài admin dashboard giúp em.",
+      "expected_output": "Skill từ chối / cảnh báo: skill version này chỉ support Supabase, KV variant đã bỏ. Đề xuất user migrate sang Supabase qua /biz-setup-sepay-payment hoặc tự port manual.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Tạo trang admin Next.js với chart và filter theo ngày tuần tháng",
+      "expected_output": "Skill trigger nhờ keyword 'chart' + 'theo ngày tuần tháng'. Phase 0 detect → Phase 1 hỏi pass → Phase 2 cài recharts → Phase 3 SQL migration → Phase 4 .env → Phase 5 scaffold → Phase 6 test 3 cấp.",
+      "files": []
+    }
+  ]
+}

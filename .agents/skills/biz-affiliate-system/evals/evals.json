@@ -1,0 +1,51 @@
+{
+  "skill_name": "biz-affiliate-system",
+  "evals": [
+    {
+      "id": 1,
+      "name": "canonical-full-request",
+      "prompt": "Thêm chức năng affiliate cho landing page Next.js của tôi. Đối tác sẽ gắn link aff riêng của họ, hệ thống tính hoa hồng theo 2 nhóm Pro 30% và Elite 40%, có trang quản lý cho admin xem doanh thu từng đối tác và portal cho đối tác tự đăng nhập xem hoa hồng. Dùng Supabase để lưu dữ liệu. Cứ dùng cấu hình mặc định, không cần hỏi lại tôi.",
+      "expected_output": "Skill scaffold migration SQL (3 bảng affiliates/affiliate_clicks/affiliate_commissions + ALTER leads thêm aff_code), lib/affiliate.ts, components/AffiliateTracker.tsx, 3 API route (click/portal/admin), 2 page (/admin/affiliates + /affiliate), và patch 4 file có sẵn (leads-supabase.ts, register, sepay-webhook, layout). Project build sạch.",
+      "files": [],
+      "expectations": [
+        "A Supabase migration .sql file was created containing CREATE TABLE for affiliates, affiliate_clicks, and affiliate_commissions",
+        "The migration adds an aff_code column to the existing leads table via ALTER TABLE",
+        "The affiliate_commissions table declares order_id as UNIQUE so a retried payment webhook cannot create a duplicate commission",
+        "A store module lib/affiliate.ts (or src/lib/affiliate.ts) was created",
+        "The commission tier rates are Pro = 30 percent and Elite = 40 percent",
+        "Commission amount is computed as a percentage of the order value (order_amount times rate divided by 100)",
+        "An AffiliateTracker client component was created that captures the ?aff= URL parameter into a cookie",
+        "Three API routes were created: a public click-tracking endpoint, an affiliate portal data endpoint, and an admin affiliates endpoint",
+        "An admin management page at /admin/affiliates and an affiliate portal page at /affiliate were created",
+        "The register API route was patched to attribute the affiliate code onto the newly created lead",
+        "The sepay-webhook API route was patched to create a commission record after a payment is confirmed",
+        "The root layout.tsx was patched to mount the AffiliateTracker component",
+        "The project builds successfully with npm run build (exit code 0)",
+        "Customer-facing pages use natural Vietnamese with anh/chi addressing"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "paraphrase-affiliate-no-skill-name",
+      "prompt": "Tôi muốn cho cộng tác viên giới thiệu khách hàng và được chia hoa hồng phần trăm trên mỗi đơn họ chốt được. Landing page Next.js của tôi đã có thanh toán Sepay + Supabase rồi. Đối tác cần có mã giới thiệu riêng và xem được doanh thu của mình. Làm giúp tôi với, dùng default settings.",
+      "expected_output": "Skill nhận diện đây là yêu cầu affiliate, scaffold đầy đủ hệ thống affiliate (migration + lib + tracker + routes + 2 page) và patch các file tích hợp. Hoa hồng tính theo tier mặc định Pro 30 / Elite 40. Project build sạch.",
+      "files": [],
+      "expectations": [
+        "A Supabase migration .sql file was created containing CREATE TABLE for affiliates, affiliate_clicks, and affiliate_commissions",
+        "The migration adds an aff_code column to the existing leads table via ALTER TABLE",
+        "The affiliate_commissions table declares order_id as UNIQUE so a retried payment webhook cannot create a duplicate commission",
+        "A store module lib/affiliate.ts (or src/lib/affiliate.ts) was created",
+        "The commission tier rates are Pro = 30 percent and Elite = 40 percent",
+        "Commission amount is computed as a percentage of the order value (order_amount times rate divided by 100)",
+        "An AffiliateTracker client component was created that captures the ?aff= URL parameter into a cookie",
+        "Three API routes were created: a public click-tracking endpoint, an affiliate portal data endpoint, and an admin affiliates endpoint",
+        "An admin management page at /admin/affiliates and an affiliate portal page at /affiliate were created",
+        "The register API route was patched to attribute the affiliate code onto the newly created lead",
+        "The sepay-webhook API route was patched to create a commission record after a payment is confirmed",
+        "The root layout.tsx was patched to mount the AffiliateTracker component",
+        "The project builds successfully with npm run build (exit code 0)",
+        "Customer-facing pages use natural Vietnamese with anh/chi addressing"
+      ]
+    }
+  ]
+}
